@@ -1,25 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
+import Login from '../components/login.astro';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<div class="headerContainer">
+		<header class="headerContainer">
 			<div class="divContainer">
-			   <h1 class="titulo">hola mundo</h1>
+			   <h1 class="titulo">Gestion Academica</h1>
 			   <div><input class="bus" type="text" placeholder="buscar"> <button class="butbus"> b </button></div>
 		    </div>
-		</div>
+			<div>
+				<nav>
+					<ul class="vinculos">
+						<li class="lip">inicio</li> <li class="lip">a cerca de</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<Login/>
 	</main>
 </Layout>
 
 <style>
+
+	/*construción del header de el sistema lol*/ 
     .headerContainer{
 		background-color: aquamarine;
-		padding: 30px;
-		
-		
+		padding: 20px;
 	}
 	.divContainer{
 		display: flex;
@@ -44,5 +52,18 @@ import Layout from '../layouts/Layout.astro';
 	}
 	.butbus:hover{
 		background-color: rgb(86, 99, 97);
+	}
+
+	.vinculos{
+		display: flex;
+		position: relative;
+	}
+	.lip{
+		padding: 10px;
+		margin: 3px;
+		
+	}
+	.lip:hover{
+		background-color: rgb(0, 231, 231);
 	}
 </style>
