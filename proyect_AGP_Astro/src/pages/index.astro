@@ -4,15 +4,13 @@ import Login from '../components/login.astro';
 import { Image } from 'astro:assets';
 
 ---
-
-<Layout title="Welcome to Astro.">
+<Layout title="Welcome to Sigea">
 	<main>
 		<header class="headerContainer">
 			<div class="divContainer">
 
 			<div class="sep"> <Image src="/icons/maestro.png" alt="" width="70" height="30"/><h1 class="titulo">Gestion Academica</h1></div>
 			   <div> <Image src="/icons/agregar-usuario.png" alt="icono de agregar usuario" width="70" height="30"/></div>
-
 		    </div>
 		
 		</header>
@@ -20,8 +18,8 @@ import { Image } from 'astro:assets';
 	</main>
 </Layout>
 
-<style>
 
+<style>
 	/*construción del header de el sistema lol*/ 
     .headerContainer{
 		background-color: aquamarine;
@@ -42,18 +40,13 @@ import { Image } from 'astro:assets';
 		font-size: 30px;
 		font-family: Arial, Helvetica, sans-serif;
 		padding: 20px;
-
 	}
-	
 	.butbus:hover{
 		background-color: rgb(86, 99, 97);
 	}
-
-	
 	.lip{
 		padding: 10px;
 		margin: 3px;
-		
 	}
 	.lip:hover{
 		background-color: rgb(0, 231, 231);
