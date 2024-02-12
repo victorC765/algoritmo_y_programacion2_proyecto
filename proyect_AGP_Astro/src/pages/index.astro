@@ -1,54 +1,70 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Login from '../components/login.astro';
-import { Image } from 'astro:assets';
+import Card from '../components/card.astro';
 
 ---
-<Layout title="Welcome to Sigea">
-	<main>
-		<header class="headerContainer">
-			<div class="divContainer">
 
-			<div class="sep"> <Image src="/icons/maestro.png" alt="" width="70" height="30"/><h1 class="titulo">Gestion Academica</h1></div>
-			   <div> <Image src="/icons/agregar-usuario.png" alt="icono de agregar usuario" width="70" height="30"/></div>
-		    </div>
-		
-		</header>
-		<Login class="componentl"/>
-	</main>
+<Card />
+<Layout title="hola">
+<main>
+    <form action="submit"  class="lForm">
+        <div class="ftitu">
+            <h1>Entrada Al Sistema</h1>
+        </div>
+        <ul>
+            <li> <input class="finput" type="text" placeholder="Cedula">
+            </li>
+            <li>
+                <input class="finput" type="password" placeholder="contraseña">
+            </li>
+            <li>
+                <button class="buton" onclick="boton">ingresar</button>
+            </li>
+        </ul>
+    </form>
+</main>
+
 </Layout>
 
+<script> 
+	function boton()
+	{
+		alert("Corre please");
+	}
+	</script>
 
 <style>
-	/*construción del header de el sistema lol*/ 
-    .headerContainer{
-		background-color: aquamarine;
-		padding: 20px;
-		backdrop-filter: blur(10px);
-	}
-	.sep{
-		display: flex;
-	}
-	.componentl{
-		justify-content: end;
-	}
-	.divContainer{
-		display: flex;
-		justify-content: space-between;
-	}
-	.titulo{
-		font-size: 30px;
-		font-family: Arial, Helvetica, sans-serif;
-		padding: 20px;
-	}
-	.butbus:hover{
-		background-color: rgb(86, 99, 97);
-	}
-	.lip{
-		padding: 10px;
-		margin: 3px;
-	}
-	.lip:hover{
-		background-color: rgb(0, 231, 231);
-	}
+    
+    .lForm{
+        background-color: #499986;
+        margin: 30px;
+        align-items: center;
+        width: 350px;
+        height: 300px;
+        padding: 40px;
+        text-align: center;
+        border-top-right-radius: 40px ;
+        border-bottom-left-radius: 40px;
+    }
+    .ftitu{
+        font-size: 23px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .finput{
+        margin: 10px;
+        height: 26px;
+        width: 190px;
+        padding: 8px;
+        border-radius: 5px;
+    }
+    .buton{
+        margin: 7px;
+        background-color: #141551;
+        padding: 5px;
+       border-radius: 5px;
+        width: 190px;
+        color: aliceblue;
+    }
+
 </style>
+

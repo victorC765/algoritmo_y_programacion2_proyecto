@@ -1,51 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
+import Card2 from '../components/card2.astro';
+
 ---
-
-
-<Layout title='materia'>
-    <main>
-        <header class="headerContainer">
-            <div class="divContainer">
-            <div class="sep"> <Image src="/icons/maestro.png" alt="" width="70" height="30"/><h1 class="titulo">Gestion Academica</h1></div>
-               <div> <Image src="/icons/usuario.png" alt="icono de agregar usuario" width="70" height="30"/></div>
-            </div>
-        </header>
-    </main>
+<Card2 />
+<Layout title='xd'>
+        
 </Layout>
 
-
-<style>
-    .headerContainer{
-		background-color: aquamarine;
-		padding: 20px;
-		backdrop-filter: blur(10px);
-	}
-	.sep{
-		display: flex;
-	}
-	.componentl{
-		justify-content: end;
-	}
-	.divContainer{
-		display: flex;
-		justify-content: space-between;
-	}
-	.titulo{
-		font-size: 30px;
-		font-family: Arial, Helvetica, sans-serif;
-		padding: 20px;
-	}	
-	.butbus:hover{
-		background-color: rgb(86, 99, 97);
-	}
-
-	.lip{
-		padding: 10px;
-		margin: 3px;
-	}
-	.lip:hover{
-		background-color: rgb(0, 231, 231);
-	}
-</style>
