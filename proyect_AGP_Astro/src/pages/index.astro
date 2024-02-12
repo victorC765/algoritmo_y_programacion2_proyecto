@@ -1,12 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/card.astro';
-
+import { Image } from 'astro:assets';
 ---
 
 <Card />
-<Layout title="hola">
-<main>
+<Layout title="Gestion Academica">
+<main class="position">
+    <div class="fond">
+        <p class="par">Bienvenido Profesor Introduzca<br/>
+             su cedula de identidad y contrasena</p>
     <form action="submit"  class="lForm">
         <div class="ftitu">
             <h1>Entrada Al Sistema</h1>
@@ -15,13 +18,16 @@ import Card from '../components/card.astro';
             <li> <input class="finput" type="text" placeholder="Cedula">
             </li>
             <li>
-                <input class="finput" type="password" placeholder="contraseña">
+                <input class="finput" type="password" placeholder="password">
             </li>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><p>¿No esta registrado?</p></a></li>
             <li>
                 <button class="buton" onclick="boton">ingresar</button>
             </li>
         </ul>
     </form>
+</div>
+ <a href="https://github.com/victorC765/algoritmo_y_programacion2_proyecto.git"><Image class='gite' src="/icons/github.png" alt='github' width="90" height="90"></Image></a>
 </main>
 
 </Layout>
@@ -34,36 +40,73 @@ import Card from '../components/card.astro';
 	</script>
 
 <style>
+    .gite{
+        position: fixed; 
+    bottom:  0;      
+    left:  0;
+    margin: 60px;        
+}
     
+     .par{
+        font-size: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 60px;
+        color: #000808;
+     }
+    .fond{
+        background-color: #317874;
+        display: flex;
+        height: 285px;
+        margin-top: 60px;
+
+    }
+    .position{
+        align-items: end;
+    }
     .lForm{
+        
         background-color: #499986;
-        margin: 30px;
+        margin-top: -40px;
+        margin-bottom: 40px;
+        margin-left: 90px;
         align-items: center;
         width: 350px;
-        height: 300px;
+        height: 350px;
         padding: 40px;
         text-align: center;
         border-top-right-radius: 40px ;
         border-bottom-left-radius: 40px;
+        filter:drop-shadow(-4px 0.3rem  0.3rem);
     }
     .ftitu{
         font-size: 23px;
         font-family: Arial, Helvetica, sans-serif;
+        margin: 20px;
     }
     .finput{
-        margin: 10px;
-        height: 26px;
+        margin: 12px;
+        
+        height: 29px;
         width: 190px;
-        padding: 8px;
+        padding: 12px;
         border-radius: 5px;
     }
+    .finput:hover{
+        height: 50;
+        width: 300;
+        background-color: #2bceff;
+    }
     .buton{
-        margin: 7px;
-        background-color: #141551;
-        padding: 5px;
+        margin: 12px;
+        background-color: #4a1fad;
+        padding: 8px;
        border-radius: 5px;
         width: 190px;
         color: aliceblue;
+    }
+    .buton:hover{
+        padding: 20px;
+        background-color: hwb(288 2% 27%);
     }
 
 </style>
