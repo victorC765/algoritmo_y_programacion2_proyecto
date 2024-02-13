@@ -6,7 +6,7 @@ import { Image } from 'astro:assets';
 
 <Card />
 <Layout title="Gestion Academica">
-<main class="position">
+<main >
     <div class="fond">
         <p class="par">Bienvenido Profesor Introduzca<br/>
              su cedula de identidad y contrasena</p>
@@ -20,7 +20,7 @@ import { Image } from 'astro:assets';
             <li>
                 <input class="finput" type="password" placeholder="password">
             </li>
-            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><p>¿No esta registrado?</p></a></li>
+            <li><button class="buton">registrarse</button> </li>
             <li>
                 <button class="buton" onclick="boton">ingresar</button>
             </li>
@@ -48,9 +48,9 @@ import { Image } from 'astro:assets';
 }
     
      .par{
-        font-size: 40px;
+        font-size: 200%;
         font-family: Arial, Helvetica, sans-serif;
-        margin: 60px;
+        margin: 80px;
         color: #000808;
      }
     .fond{
@@ -58,20 +58,20 @@ import { Image } from 'astro:assets';
         display: flex;
         height: 285px;
         margin-top: 60px;
+        justify-content:space-between;
+        
 
     }
-    .position{
-        align-items: end;
-    }
+   
     .lForm{
         
         background-color: #499986;
         margin-top: -40px;
         margin-bottom: 40px;
-        margin-left: 90px;
+       margin-right: 15%;
         align-items: center;
-        width: 350px;
-        height: 350px;
+       width: 350px;
+       height: 370px ;
         padding: 40px;
         text-align: center;
         border-top-right-radius: 40px ;
@@ -85,7 +85,7 @@ import { Image } from 'astro:assets';
     }
     .finput{
         margin: 12px;
-        
+        color: #4a1fad;
         height: 29px;
         width: 190px;
         padding: 12px;
@@ -97,9 +97,9 @@ import { Image } from 'astro:assets';
         background-color: #2bceff;
     }
     .buton{
-        margin: 12px;
+        margin: 9px;
         background-color: #4a1fad;
-        padding: 8px;
+        padding: 6px;
        border-radius: 5px;
         width: 190px;
         color: aliceblue;
