@@ -12,7 +12,7 @@
             <input class="inputtext" type="text" placeholder="tipo de evaluación" >
         </label>
          <label>
-            <input class="inputtext" type="text" placeholder="ponderacion">
+            <input class="inputtext" type="number" placeholder="ponderacion">
         </label>
         <label>
             <input class="" type="number"  >
@@ -25,24 +25,37 @@
 
 <style>
           .formE{
-            padding: 40px; 
-            background-color: white; 
-            width: 300px;
-            height: 390px;
-            margin: 50px;
-            text-align: center;
-            border-radius: 10px ;
+            width: 100%;
+    max-width: 450px;
+    background-color: whitesmoke;
+    padding: 50px 60px 70px;
+    text-align: center;
+    border-radius: 25px;
+
         }
         .titulo{
             font-family: Arial, Helvetica, sans-serif;
             font-size: 20px;
             padding: 15px;
         }
+        input{
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: none;
+    padding: 18px ;
+}
+
+input::placeholder {
+    color:black;
+}
         .inputtext{
-          background-color: #D9D9D9 ;
-          margin: 10px;
-          height: 30px;
-          padding: 10px;
+            background-color: antiquewhite;
+           margin: 25px 0;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            transition: max-height 05s;
         }
         .buton{
             background-color: #141551;
