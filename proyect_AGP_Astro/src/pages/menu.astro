@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card2 from '../components/card2.astro';
+import { Image } from 'astro:assets';
+---
+<Card2 />
+<Layout title='Gestion Academica'>
+    
+  <div class="conteiner">
+   <div class="circulo"> 
+    <ul>
+        <li>
+            <a>
+                <div class="icon">
+                    <Image src="/icons/lista-de-verificacion.png"  alt="icono de nomina estudiantil" width="120" height="80" />
+                </div>
+                <div>Nomina estudiantil</div>
+            </a>
+        </li>
+        <li>
+            <a>
+                <div class="icon">
+                    <Image src="/icons/evaluation_8921149.png"  alt="icono de evaluacion" width="150" height="190"  />
+                </div>
+                <div>Evaluaciones</div>
+            </a>
+        </li>
+        <li>
+            <a>
+                <div class="icon">
+                    <Image src="/icons/estudiante.png"  alt="icono de estado de estudiantil" width="170" height="80" />
+                </div>
+                <div><br/>Estado estudiantil</div>
+            </a>
+        </li>
+        <li>
+            <a>
+                <div class="icon">
+                    <Image src="/icons/salida-de-emergencia.png"  alt="icono de cierre de curso" width="180" height="190" />
+                </div>
+                <div>Cierre de curso</div>
+            </a>
+        </li>
+      </ul>
+   </div>
+ </div>
+
+</Layout>
+
+<style>
+
+.conteiner{
+    display: flex;
+    justify-content: center;
+    height: 900px;
+    align-items: center;
+}
+
+.circulo{
+    height: 350px;
+    width: 550px;
+    background-color: rgb(77, 141, 17);
+    border-radius: 300px;
+    }
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+
+}
+
+ul {
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 28.5%;
+    left: 43.5%;
+    transform: translate(-50%,50%);
+    margin: 80px;
+    padding: 30px 0;
+    background: green;
+    display: flex;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .3); 
+}
+
+ul li{
+    list-style: none;
+    justify-content: center;
+    text-align: center;
+    display: block;
+}
+ul li a{
+    text-decoration: none;
+    padding: 0 55px;
+    display: block;
+}
+  
+</style>
