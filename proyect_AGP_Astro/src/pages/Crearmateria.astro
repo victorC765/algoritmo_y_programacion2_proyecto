@@ -3,13 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import Card2 from '../components/card2.astro';
 
 ---
-<Card2 />
+
 <Layout title='xd'>
+    <Card2 />
     <div class="container">
-        <div class="form-content">
-            <header>
+        <div class="c">
+         <header>
                 <h1 id="title">Crear aginatura</h1>
             </header>
+        <div class="form-content">
+           
             <form>
                 <div class="input-group">
                     <div class="input-field">
@@ -33,6 +36,8 @@ import Card2 from '../components/card2.astro';
             </form>
         </div>
     </div>
+    </div>
+</Layout>
         <style>
 *{
     margin: 0;
@@ -42,21 +47,33 @@ import Card2 from '../components/card2.astro';
     text-decoration: none;
 
 }
+.c{
+   width: 100%;
+   width: 450px;
+    position: relative;
+}
 .container{
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
 }
-
-.form-content{
-    width: 100%;
-    max-width: 450px;
-    background-color: whitesmoke;
-    padding: 50px 60px 70px;
+header{
+    background-color: #216EB6;
+    padding: 30px;
+    border-top-left-radius:25px ;
+    border-top-right-radius:25px ;
     text-align: center;
-    border-radius: 25px;
+    font-size: 20px;
+}
+.form-content{
+
+    background-color: whitesmoke;
+    padding: 60px 70px 80px;
+    text-align: center;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius:25px ;
 }
 
 .form-content h1{
@@ -74,6 +91,7 @@ import Card2 from '../components/card2.astro';
     align-items: center;
     transition: max-height 05s;
 }
+
 
 input{
     width: 100%;
@@ -96,7 +114,7 @@ input::placeholder {
 .btn-field button{
     flex-basis: 48%;
     font-size: 16px;
-    background-color: blue;
+    background-color: #141551;
     color: azure;
     height: 40px;
     border-radius: 10px;
