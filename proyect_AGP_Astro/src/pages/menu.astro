@@ -10,23 +10,23 @@ import { Image } from 'astro:assets';
    <div class="circulo"> 
     <ul>
         <li>
-            <a>
+            <a href="./nomina">
                 <div class="icon">
-                    <Image src="/icons/lista-de-verificacion.png"  alt="icono de nomina estudiantil" width="120" height="80" />
+                    <Image src="/icons/lista-de-verificacion.png"  alt="icono de nomina estudiantil" width="170" height="80" />
                 </div>
                 <div>Nomina estudiantil</div>
             </a>
         </li>
         <li>
-            <a>
+            <a href="./evaluacion">
                 <div class="icon">
-                    <Image src="/icons/evaluation_8921149.png"  alt="icono de evaluacion" width="150" height="190"  />
+                    <Image src="/icons/evaluation_8921149.png"  alt="icono de evaluacion" width="170" height="80" />
                 </div>
                 <div>Evaluaciones</div>
             </a>
         </li>
         <li>
-            <a>
+            <a href="">
                 <div class="icon">
                     <Image src="/icons/estudiante.png"  alt="icono de estado de estudiantil" width="170" height="80" />
                 </div>
@@ -34,11 +34,11 @@ import { Image } from 'astro:assets';
             </a>
         </li>
         <li>
-            <a>
+            <a href="">
                 <div class="icon">
-                    <Image src="/icons/salida-de-emergencia.png"  alt="icono de cierre de curso" width="180" height="190" />
+                    <Image src="/icons/salida-de-emergencia.png"  alt="icono de cierre de curso" width="170" height="80"/>
                 </div>
-                <div>Cierre de curso</div>
+                <h1>Cierre de curso</h1>
             </a>
         </li>
       </ul>
@@ -57,10 +57,10 @@ import { Image } from 'astro:assets';
 }
 
 .circulo{
-    height: 350px;
+    height: 450px;
     width: 550px;
-    background-color: rgb(77, 141, 17);
-    border-radius: 300px;
+    background-color: #317874;
+    border-radius: 350px;
     }
 
 *{
@@ -71,19 +71,22 @@ import { Image } from 'astro:assets';
 }
 
 ul {
-    height: 200px;
+    width: 100%;
+    max-width: 800px;
+    height: 250px;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 28.5%;
-    left: 43.5%;
+    top: 24.5%;
+    left: 44.5%;
     transform: translate(-50%,50%);
     margin: 80px;
     padding: 30px 0;
-    background: green;
+    background: #499986;
     display: flex;
     border-radius: 30px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, .3); 
+    filter:drop-shadow(-4px  4px  0.4rem);
 }
 
 ul li{
@@ -94,8 +97,15 @@ ul li{
 }
 ul li a{
     text-decoration: none;
-    padding: 0 55px;
+    padding:  45px;
+    height: 250px;
     display: block;
+}
+a:hover{
+    background-color: #1b4147;
+    opacity: 0.8;
+    padding: 30px;
+    border-radius: 30px;
 }
   
 </style>
