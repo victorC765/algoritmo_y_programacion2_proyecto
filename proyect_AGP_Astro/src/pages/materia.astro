@@ -5,6 +5,24 @@ import { Image } from 'astro:assets';
 ---
 
 <Card2 />
-<Layout title='Gestion Academica'>
-    
+<Layout title='Gestion Academica'> 
+    <div class="box">
+        <a href="./menu">
+          <div>
+            <Image src="/icons/computadora.png" alt='selecionar la materia' width="180" height="90"/>
+          </div>
+        <div>Algoritmo y programacion II</div>
+    </div>  
 </Layout>
+
+<style> 
+.box{
+    width: 250px;
+    height: 250px;
+    background: green;
+    display: inline-block;
+    margin: 80px 70px;
+    line-height: 250px;
+    border-radius: 100px;
+}
+</style>
