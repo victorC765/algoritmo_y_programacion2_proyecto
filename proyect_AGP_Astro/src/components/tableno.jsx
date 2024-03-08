@@ -29,7 +29,7 @@ export default function Tableno(args){
 </Table>
 <div>
       <Button color="danger" onClick={toggle}>
-        Click Me
+       cargar
       </Button>
       <Modal isOpen={modal} toggle={toggle} {...args}>
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
