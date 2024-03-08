@@ -8,10 +8,8 @@ import { Image } from 'astro:assets';
 <Layout title='Gestion Academica'> 
     <div class="box">
         <a href="./menu">
-          <div>
-            <Image src="/icons/computadora.png" alt='selecionar la materia' width="180" height="90"/>
-          </div>
-        <div>Algoritmo y programacion I</div>
+        <Image src="/icons/computadora.png" class="pos" alt='selecionar la materia' width="180" height="110"/>
+        <span>Algoritmo y programacion II</span>
     </div>  
 </Layout>
 
@@ -19,13 +17,18 @@ import { Image } from 'astro:assets';
 div{
   justify-content: center;
 }
+
+.pos{
+  left: 30%;
+}
 .box{
-    width: 250px;
-    height: 250px;
-    background: green;
-    display: inline-block;
-    margin: 80px 70px;
-    line-height: 250px;
+    width: 100%;
+    max-width: 320px;
+    padding: 80px;
+    text-align: center;
+    align-items: center;
+    background-color: #317874;
+    margin: 80px;
     border-radius: 100px;
 }
 </style>
