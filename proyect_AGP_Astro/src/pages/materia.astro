@@ -1,34 +1,59 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card2 from '../components/card2.astro';
-import { Image } from 'astro:assets';
+import Card2 from "../components/card2.astro";
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
 ---
 
+<!--Esta parte es el encabezado -->
 <Card2 />
-<Layout title='Gestion Academica'> 
-    <div class="box">
-        <a href="./menu">
-        <Image src="/icons/computadora.png" class="pos" alt='selecionar la materia' width="180" height="110"/>
-        <span>Algoritmo y programacion II</span>
-    </div>  
+<!--Esta parte es el encabezado -->
+<Layout title="Gestion Académica">
+  <meta charset="utf-8" />
+  <div class="box">
+    <div class="container">
+    <a href="/menu">
+    <Image src="/icons/codigo.png" alt="computadora" width="200" height="250" />
+    <label> Algoritmo y Programacion II</label></a>
+  </div>
+    <!--Boton de para la materia algoritmo y programacion II -->
+
+    <!--Imagen para el icono mas -->
+    <div class="mas">
+      <a href="./Crearmateria"><Image src="/icons/mas.png" alt="mas" width="200" height="250" /></a>
+    </div>
+    <!--Imagen para el icono mas -->
+
+  </div>
+  <!--Esta parte lleva al repositorio github -->
+  <a href="https://github.com/victorC765/algoritmo_y_programacion2_proyecto.git"
+    ><Image
+      class="gite"
+      src="/icons/github.png"
+      alt="github"
+      width="90"
+      height="90"
+    /></a
+  >
+
+  <!--Esta parte lleva al repositorio github -->
 </Layout>
 
-<style> 
-div{
-  justify-content: center;
-}
-
-.pos{
-  left: 30%;
-}
-.box{
-    width: 100%;
+<!--listo esta parte de aquí, este es el fondo de las materias-->
+<style>
+  .container {
+    background: #499986;
+    padding: 70px;
     max-width: 320px;
-    padding: 80px;
+    width: 100%;
+    border-radius:50px ;
+    margin: 50px;
     text-align: center;
-    align-items: center;
-    background-color: #317874;
-    margin: 80px;
-    border-radius: 100px;
-}
+  }
+  .mas{
+    margin: 50px;
+  }
+  .box{
+    display: flex;
+  }
 </style>
+<!--listo esta parte de aquí-->
