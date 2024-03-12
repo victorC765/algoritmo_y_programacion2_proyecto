@@ -10,7 +10,7 @@
         <div>
             <a href="http://localhost:4321/"><button class="boton" >si</button></a>
        
-            <a href="/menu"><button class="boton">no</button></a>
+            <a href="/menu"><button id="de" class="boton">no</button></a>
         </div>
     
 </div>
@@ -52,15 +52,21 @@
     .boton{
         width: 90px;
         top: 30px;
-
-        border-radius: 5px;
+      padding: 8px;
+        border-radius: 7px;
         color: aliceblue;
         background-color: rgb(57, 64, 250);
         margin: 30px;
         
     }
+    #de{
+        background-color: #ff3a3a;
+    }
+    #de:hover{
+        background-color: blueviolet;
+    }
     .boton:hover{
-        background-color: rgba(52, 27, 66, 0.647);
+        background-color: rgb(68, 21, 195);
     }
    
 </style>

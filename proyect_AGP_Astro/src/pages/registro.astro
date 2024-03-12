@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/card.astro';
+import { Image } from 'astro:assets';
+---
+
+<Card />
+<Layout title="Gestion Academica">
+<main >
+   
+      <div class="contain">
+    <form   class="lForm">
+        <div class="ftitu">
+            <h1>Registrarse</h1>
+        </div>
+            <div  class="filas">
+            <input class="finput" type="text" placeholder="Cedula">
+              
+                <input class="finput" type="text" placeholder="primer nombre">
+         
+                <input class="finput" type="text" placeholder="segundo nombre">
+
+                <input class="finput" type="text" placeholder="primer apellido">
+         
+                <input class="finput" type="text" placeholder="segundo apellido">
+            </div>
+            
+                <input class="finput" type="password" placeholder="password">
+
+                <input class="finput" type="password" placeholder="confirmacion de password">
+          
+            <a href="./registro"><input type="button" class="buton" value="registrarse"></a> 
+           
+        </ul>
+    </form>
+</div>
+ <a href="https://github.com/victorC765/algoritmo_y_programacion2_proyecto.git"><Image class='gite' src="/icons/github.png" alt='github' width="90" height="90"></Image></a>
+</main>
+
+</Layout>
+
+<style>
+     .filas{
+        display: flex;
+     }
+   .contain{
+    display: flex;
+    justify-content: center;
+   }
+    .lForm{
+        
+        background-color: #499986;
+        margin: 60px;
+        width: 100%;
+        max-width: 1000px;
+        height: 150%;
+        max-height: 700px;
+        padding: 40px;
+        text-align: center;
+        border-top-right-radius: 60px ;
+        border-bottom-left-radius: 60px;
+        filter:drop-shadow(-4px 0.3rem  0.3rem);
+    }
+    .ftitu{
+        font-size: 23px;
+        font-family: "Anton", sans-serif;
+        margin: 20px;
+
+    }
+    .finput{
+        margin: 15px;
+        color: #4a1fad;
+        width: 30%;
+        padding: 12px;
+        border-radius: 5px;
+    }
+    .finput::placeholder{
+        color: #000808;
+    }
+    .finput:hover{
+        height: 50;
+        width: 300;
+        background-color: #2bceff;
+    }
+    .buton{
+        margin: 9px;
+        background-color: #4a1fad;
+        padding: 10px;
+        border-radius: 5px;
+        width: 80%;
+        color: aliceblue;
+    }
+    .buton:hover{
+        padding: 20px;
+        background-color: hwb(288 2% 27%);
+    }
+
+
+
+</style>
