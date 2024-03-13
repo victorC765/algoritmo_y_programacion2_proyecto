@@ -28,9 +28,9 @@ export default function Tableno(args){
     </tbody>
 </Table>
 <div>
-      <Button color="danger" onClick={toggle}>
+      <button class="boton" color="danger" onClick={toggle}>
        cargar
-      </Button>
+      </button>
       <Modal isOpen={modal} toggle={toggle} {...args}>
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
         <ModalBody>
