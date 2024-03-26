@@ -3,10 +3,16 @@ Sistema de gestion notas
  Integrantes:
 
   Isaac Cattoni C.I: 30.551.898
-  Usuario del githud: aisaak19
+  Usuario de githud: aisaak19
 
   Victor Cardona C.I. 30.700.323
-  Usuario del gitud: victorc765
+  Usuario de githud: victorc765
+
+  Jesus Rondon C.I:
+  Usuario de githud: XarDn7
+
+  Kevin Fragoso C.I:
+  Usuario de githud:kevinfragoso2
 
 definicion Control de versiones;
 
