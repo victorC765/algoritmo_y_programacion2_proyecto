@@ -8,10 +8,10 @@ Sistema de gestion notas
   Victor Cardona C.I. 30.700.323
   Usuario de githud: victorc765
 
-  Jesus Rondon C.I:
+  Jesus Rondon C.I: 31.047.386
   Usuario de githud: XarDn7
 
-  Kevin Fragoso C.I:
+  Kevin Fragoso C.I: 30.346.412
   Usuario de githud:kevinfragoso2
 
 definicion Control de versiones;
