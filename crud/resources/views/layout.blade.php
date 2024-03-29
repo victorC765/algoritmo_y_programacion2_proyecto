@@ -18,6 +18,15 @@
     @if (session("error"))
     <div class="alert alert-danger">{{ session("error") }}</div>
     @endif
+
+    <script>
+      let res=function()
+      {
+        let nolsa=confirm("¿esta seguro de eliminar esta evaluación?");
+
+        return nolsa;
+      }
+    </script>
     <div class="p-5 table-responsive">
         <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#AñadirModal">Añadir Nueva Evaluación</button>
 
@@ -29,7 +38,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route("crud.create")}}" method="s">
+                    <form action="{{route("crud.create")}}" method="post">
                         @csrf
                         <div class="mb-3">
                           <label for="temadelaevaluacion" class="form-label">Tema:</label>
@@ -89,13 +98,13 @@
             @foreach ($datos as $item)
             <tr class="p-3 text-center">
                 <td scope="row">{{$item->idevaluaciones}}</td>
-                <td>{{$item->tema}}</td>
+                <td id="nose">{{$item->tema}}</td>
                 <td>{{$item->tipo_evaluacion}}</td>
                 <td>{{$item->ponderacion}}%</td>
                 <td>{{$item->fecha}}</td>
                 <td>
                     <a href="#" data-bs-toggle="modal" data-bs-target="#EditarModal"  class="btn btn-warning btn"><img width="27" height="30" src="https://img.icons8.com/dusk/64/edit--v1.png" alt="edit--v1"/></a>
-                    <a href="" class="btn btn-danger btn"><img width="27" height="30" src="https://img.icons8.com/dusk/64/delete--v1.png" alt="delete--v1"/></a>
+                    <a href="{{route("crud.delete",$item->idevaluaciones)}}" onClick="return res()" class="btn btn-danger btn"><img width="27" height="30" src="https://img.icons8.com/dusk/64/delete--v1.png" alt="delete--v1"/></a>
                 </td>
             </tr>
             @endforeach
@@ -114,7 +123,7 @@
                             @csrf
                             <div class="mb-3">
                               <label for="iddelaevaluacion" class="form-label">ID:</label>
-                              <input type="text" class="form-control" name="idevaluaciones" >
+                              <input type="text" class="form-control" name="idevaluaciones" value="#{{$item->idevaluaciones}}" >
                             </div>
                             <div class="mb-3">
                               <label for="temadelaevaluacion" class="form-label">Tema:</label>
@@ -160,14 +169,7 @@
         </tbody>
       </table>
     </div>
-      <script>
-         $('#EditarModal{{$item->idevaluaciones}}').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget); // Button that triggered the modal
-                var id = button.data('id'); // Extract info from data-* attributes
-                // Use the ID to fetch data and populate the modal
-            });
-
-      </script>
+     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

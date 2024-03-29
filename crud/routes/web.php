@@ -12,4 +12,4 @@ Route::post('/añadir_evaluacion', [CrudController::class, 'create'])->name("cru
 Route::post('/modificar_evaluacion', [CrudController::class, 'update'])->name("crud.update");
 
 
-Route::get("/eliminar_evaluacion_{id}", [CrudController::class, 'delete'])->name("crud.delete");
+Route::get("/eliminar_evaluacion_{idevaliaciones}", [CrudController::class, 'delete'])->name("crud.delete");

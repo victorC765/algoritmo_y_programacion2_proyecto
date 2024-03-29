@@ -55,9 +55,9 @@ class CrudController extends Controller
                 return back()->with("error", "Error al modificar la evaluación: ");
             }
         }
-        public function delete($id){
+        public function delete($idevaluaciones){
             try {
-                $sql = DB::delete("DELETE FROM `evaluaciones` WHERE `idevaluaciones`=?", [$id]);
+                $sql = DB::delete("DELETE FROM `evaluaciones` WHERE `idevaluaciones`=?", [$idevaluaciones]);
                 if ($sql == true) {
                     return back()->with("añadido", "Evaluación eliminada correctamente");
                 } else {
