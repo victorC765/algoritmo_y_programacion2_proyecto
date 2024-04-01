@@ -94,82 +94,85 @@
         </div>
           </tr>
         </thead>
+        @foreach ($datos as $item)
         <tbody >
-            @foreach ($datos as $item)
-            <tr class="p-3 text-center">
+            <tr class="p-3">
                 <td scope="row">{{$item->idevaluaciones}}</td>
-                <td id="nose">{{$item->tema}}</td>
+                <td >{{$item->tema}}</td>
                 <td>{{$item->tipo_evaluacion}}</td>
                 <td>{{$item->ponderacion}}%</td>
                 <td>{{$item->fecha}}</td>
                 <td>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#EditarModal"  class="btn btn-warning btn"><img width="27" height="30" src="https://img.icons8.com/dusk/64/edit--v1.png" alt="edit--v1"/></a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#EditarModal{{$item->idevaluaciones}}"  class="btn btn-warning btn"><img width="27" height="30" src="https://img.icons8.com/dusk/64/edit--v1.png" alt="edit--v1"/></a>
                     <a href="{{route("crud.delete",$item->idevaluaciones)}}" onClick="return res()" class="btn btn-danger btn"><img width="27" height="30" src="https://img.icons8.com/dusk/64/delete--v1.png" alt="delete--v1"/></a>
-                </td>
-            </tr>
-            @endforeach
+                    <div class="modal fade" id="EditarModal{{$item->idevaluaciones}}" tabindex="-1" aria-labelledby="EditarModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="EditarModalLabel">Editar Evaluaciones</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                              <form action="{{route("crud.update")}}" method="post">
+                                  @csrf
+                                  <div class="mb-3">
+                                    <label for="iddelaevaluacion" class="form-label">ID:</label>
+                                    <input type="text" class="form-control" name="idevaluaciones" value="{{$item->idevaluaciones}}" >
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="temadelaevaluacion" class="form-label">Tema:</label>
+                                    <input type="text" class="form-control"  name="tema" value="{{$item->tema}}" >
+                                  </div>
+                                  <div class="mb-3">
+                                  <label for="tipodelaevaluacion" class="form-label">Tipo de Evaluacion:</label>
+                                  <select class="form-select" aria-label="Default select example"  name="tipo_evaluacion" value="{{$item->tipo_evaluacion}}">
+                                      <option selected>elija el tipo de evaluación</option>
+                                      <option value="examen">examen</option>
+                                      <option value="taller">taller</option>
+                                      <option value="exposición">exposición</option>
+                                      <option value="debate">debate</option>
+                                    </select>
+                                  </div>  
+                                  <div class="mb-3">
+                                      <label for="ponderaciondeevaluacion" class="form-label">Ponderación:</label>
+                                      <select class="form-select" aria-label="Default select example"  name="ponderacion" value="{{$item->ponderacion}}">
+                                          <option selected>elija la ponderación de la evaluación</option>
+                                          <option value="5">5%</option>
+                                          <option value="10">10%</option>
+                                          <option value="15">15%</option>
+                                          <option value="20">20%</option>
+                                          <option value="25">25%</option>
+                                        </select>
+                                      </div> 
+                                      <div class="mb-3">
+                                          
+                                          <label for="fechadelaevaluacion" class="form-label">Fecha:</label>
+                                          <input type="date" class="form-control"  name="fecha" value="{{$item->fecha}}">    
+                                      </div> 
+                                      <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
+                                          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                        </div>
+                                  
+                                </form>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+              @endforeach
+            </table>
+            
+          
+       
+        
            
               
               <!-- Modal para editar registros-->
-              <div class="modal fade" id="EditarModal" tabindex="-1" aria-labelledby="EditarModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="EditarModalLabel">Editar Evaluaciones</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="{{route("crud.update")}}" method="post">
-                            @csrf
-                            <div class="mb-3">
-                              <label for="iddelaevaluacion" class="form-label">ID:</label>
-                              <input type="text" class="form-control" name="idevaluaciones" value="#{{$item->idevaluaciones}}" >
-                            </div>
-                            <div class="mb-3">
-                              <label for="temadelaevaluacion" class="form-label">Tema:</label>
-                              <input type="text" class="form-control"  name="tema" >
-                            </div>
-                            <div class="mb-3">
-                            <label for="tipodelaevaluacion" class="form-label">Tipo de Evaluacion:</label>
-                            <select class="form-select" aria-label="Default select example"  name="tipo_evaluacion">
-                                <option selected>elija el tipo de evaluación</option>
-                                <option value="examen">examen</option>
-                                <option value="taller">taller</option>
-                                <option value="exposición">exposición</option>
-                                <option value="debate">debate</option>
-                              </select>
-                            </div>  
-                            <div class="mb-3">
-                                <label for="ponderaciondeevaluacion" class="form-label">Ponderación:</label>
-                                <select class="form-select" aria-label="Default select example"  name="ponderacion">
-                                    <option selected>elija la ponderación de la evaluación</option>
-                                    <option value="5">5%</option>
-                                    <option value="10">10%</option>
-                                    <option value="15">15%</option>
-                                    <option value="20">20%</option>
-                                    <option value="25">25%</option>
-                                  </select>
-                                </div> 
-                                <div class="mb-3">
-                                    
-                                    <label for="fechadelaevaluacion" class="form-label">Fecha:</label>
-                                    <input type="date" class="form-control"  name="fecha">>    
-                                </div> 
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
-                                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                                  </div>
-                            
-                          </form>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-        </tbody>
-      </table>
-    </div>
-     
+             
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
