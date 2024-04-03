@@ -35,8 +35,8 @@
                 </button>
                 <div class="modal fade" id="exampleModal{{ $estudiante->idestudiantes }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-xl">
-                    <form action="{{route("nomina.create")}}" method="post">
-                      @csrf
+                    
+                      
                     <div class="modal-content">
                       <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel" >{{$estudiante->nombre}} {{$estudiante->apellido}}</h1> 
@@ -53,15 +53,20 @@
                                 <div class="m">
                                 {{$item->tipo_evaluacion}}
                               </div>
+                              <form action="{{route("nomina.create")}}" method="post">
+                              @csrfs
                               <div>
                                 <input type="text" value="{{$item->idevaluaciones}}" name="idevaluaciones" >
                               </div>
                                   <div class="i">
                                 <input type="text" value="{{$estudiante->idestudiantes}}" name="idestudiantes">
                               </div>
+                              
                                 <div class="i">
                                   <label for="" >nota</label>
-                                <input type="number" name="nota">
+                                <input type="number" name="nota" min="0" max="100">
+                                <button class="btn btn-info" type="submit">cargar</button>
+                                </form>
                               </div>
                             </div>
                         @endforeach
@@ -72,7 +77,7 @@
                       </div>
                     </div>
                   </div>
-                </form>
+             
                 </div>
               
               </td>
