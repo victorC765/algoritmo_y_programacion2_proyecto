@@ -56,7 +56,7 @@
 .conteiner{
     display: flex;
     justify-content: center;
-    height: 1000px;
+    height: 1010px;
     align-items: center;
 }
 
