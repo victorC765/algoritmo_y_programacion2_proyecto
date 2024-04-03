@@ -54,12 +54,12 @@
                                 {{$item->tipo_evaluacion}}
                               </div>
                               <form action="{{route("nomina.create")}}" method="post">
-                              @csrfs
+                              @csrf
                               <div>
-                                <input type="text" value="{{$item->idevaluaciones}}" name="idevaluaciones" >
+                                <input  type="hidden" value="{{$item->idevaluaciones}}" name="idevaluaciones" >
                               </div>
                                   <div class="i">
-                                <input type="text" value="{{$estudiante->idestudiantes}}" name="idestudiantes">
+                                <input  type="hidden" value="{{$estudiante->idestudiantes}}" name="idestudiantes">
                               </div>
                               
                                 <div class="i">
