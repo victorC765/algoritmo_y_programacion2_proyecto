@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card2 from '../components/card2.astro';
+import Creareva from '../components/creareva.astro';
+import Tableva from '../components/tableva.astro'
+---
+
+<Layout title='Gestion Academica'>
+    <Card2></Card2>
+    <main class="contain">
+         <Creareva />
+        <Tableva/>
+    </main>
+    </Layout>
+
+    <style>
+         .contain{
+         display: flex;
+         justify-content: space-around;
+         }
+    </style>

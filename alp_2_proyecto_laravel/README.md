@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -64,3 +65,26 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+=======
+Sistema de gestion notas
+
+ Integrantes:
+
+  Isaac Cattoni C.I: 30.551.898
+  Usuario de githud: aisaak19
+
+  Victor Cardona C.I. 30.700.323
+  Usuario de githud: victorc765
+
+  Jesus Rondon C.I: 31.047.386
+  Usuario de githud: XarDn7
+
+  Kevin Fragoso C.I: 30.346.412
+  Usuario de githud:kevinfragoso2
+
+definicion Control de versiones;
+
+el control de versiones, también conocido como "control de código fuente", es la práctica de rastrear y gestionar los cambios en el código de software. Se refiere a la gestión de los diversos cambios realizados sobre los elementos de un producto o una configuración del mismo, permitiendo la administración de las distintas versiones de cada producto desarrollado.
+
+Un sistema de gestión de notas es un software que permite la organización, seguimiento y comunicación de las calificaciones y el rendimiento académico de los estudiantes en una institución educativa. Estos sistemas facilitan la gestión de la asistencia, la coordinación de evaluaciones y la comunicación entre profesores, estudiantes y padres.
+>>>>>>> 961e747098f6077700681a6a0fec06d57ffeae06

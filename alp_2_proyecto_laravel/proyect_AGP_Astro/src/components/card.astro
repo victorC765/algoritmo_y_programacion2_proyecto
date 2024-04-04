@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<main>
+    <header class="headerContainer">
+        <div class="divContainer">
+
+        <div class="sep"> <Image src="/icons/maestro.png" alt="" width="70" height="30"/><h1 class="titulo">Gestion Academica</h1></div>
+           <div> <Image src="/icons/agregar-usuario.png" alt="icono de agregar usuario" width="70" height="30"/></div>
+        </div>
+    </header>
+</main>
+
+<style>
+	/*construción del header de el sistema lol*/ 
+	@import url('https://fonts.googleapis.com/css2?family=Anton&family=Workbench&display=swap');
+    .headerContainer{
+		background-color: aquamarine;
+		padding: 20px;
+		
+		
+	}
+	.sep{
+		display: flex;
+	}
+	.componentl{
+		justify-content: center;
+	}
+	.divContainer{
+		display: flex;
+		justify-content: space-between;
+	}
+	.titulo{
+		font-size: 30px;
+		font-family: "Workbench", sans-serif;
+		padding: 20px;
+	}
+	.butbus:hover{
+		background-color: rgb(86, 99, 97);
+	}
+	.lip{
+		padding: 10px;
+		margin: 3px;
+	}
+	.lip:hover{
+		background-color: rgb(0, 231, 231);
+	}
+</style>
+
+
+	

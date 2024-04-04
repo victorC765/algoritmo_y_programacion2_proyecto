@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/cierre1',function(){
+    return view('cierre');
+});
+Route::get('/menu',function(){
+    return view('hola');
+});
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/evaluacion', [CrudController::class, 'index'])->name("crud.index");
 
 Route::get('/lista', [NominaController::class, 'index'])->name("nomina.index");

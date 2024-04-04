@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Card2 from "../components/card2.astro"
+import Tableno from  "../components/tableno"
+
+---
+
+
+<Layout title="Gestion Academica">
+    <Card2/>
+    <main class="bc">
+        <a class="pesA" href="">seccion A</a>
+
+        <div class="contain">
+        <Tableno/>
+
+        </div>
+    </main>
+    
+</Layout>
+
+
+<style>
+.contain{
+   
+    background-color: #499986;
+    padding: 40px;
+    margin: none;
+}
+.bc{
+   margin: 30px;
+}
+.pesA{
+    background-color: #499986;
+    padding: 10px;
+    border-top-left-radius: 15px ;
+    border-top-right-radius: 15px ;
+    margin: none;
+    }
+</style>
