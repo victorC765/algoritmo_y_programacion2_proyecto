@@ -17,7 +17,7 @@ Route::get('/cierre1',function(){
     return view('cierre');
 });
 Route::get('/menu',function(){
-    return view('hola');
+    return view('menu');
 });
 Route::get('/', function () {
     return view('welcome');

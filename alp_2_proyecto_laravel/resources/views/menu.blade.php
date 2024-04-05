@@ -5,12 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ asset('css/menu.css') }}"> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>hola</title>
+    <title>menu</title>
 </head>
 <body>
-    <img src="{{ asset('img/evaluation_8921149.jpg') }}" alt="Descripción de la imagen">
-    <h1>hola crack</h1>
-    <h2>esto no funciona</h2>
     <div class="conteiner">
         <div class="circulo"> 
             <ul>

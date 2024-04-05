@@ -8,10 +8,11 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/evaluacion.css') }}">
 </head>
 <body>
 
-    <h1  class="text-center p-3">Carga de Evaluaciones</h1>
+    <h1  class="er">Carga de Evaluaciones</h1>
     @if (session("añadido"))
     <div class="alert alert-success">{{ session("añadido") }}</div>
     @endif
@@ -116,8 +117,7 @@
                               <form action="{{route("crud.update")}}" method="post">
                                   @csrf
                                   <div class="mb-3">
-                                    <label for="iddelaevaluacion" class="form-label">ID:</label>
-                                    <input type="text" class="form-control" name="idevaluaciones" value="{{$item->idevaluaciones}}" >
+                                    <input type="hidden" class="form-control" name="idevaluaciones" value="{{$item->idevaluaciones}}" >
                                   </div>
                                   <div class="mb-3">
                                     <label for="temadelaevaluacion" class="form-label">Tema:</label>
