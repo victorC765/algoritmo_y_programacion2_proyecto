@@ -11,17 +11,42 @@
     <title>Nomina Estudiantil</title>
 </head>
 <body>
+  <header>
+    <button class="btn btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"> ≡ </button>
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Lista de Navegación</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <a href="./evaluacion"><button class="btn btn-success"> <img src="{{ asset('img/evaluation_8921149.png') }}" alt="icono de evaluacion" width="135" height="135" /></button></a>
+  </div>
+</div>
+  </header>
   <div class="cont">
-  <h1 class="n">estudiantes</h1>
+  <h1 class="n"><img width="80" height="80" src="https://img.icons8.com/plasticine/100/graduation-cap.png" alt="graduation-cap"/>Estudiantes</h1>
     <div class="box">
-    <table class="table borderless " style="margin: 0%">
+      <div class="sel">
+      <div class="form-floating">
+        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+          <option selected>Selecione una sección</option>
+          <option value="1">Sección A</option>
+          <option value="2">Sección B</option>
+          <option value="3">Sección C</option>
+        </select>
+        <label for="floatingSelect">Secciones</label>
+      </div>
+      <button class="btn btn-danger">🔍</button>
+    </div>
+    <table class="table  table-hover" style="margin: 0%">
         <thead>
           <tr class="table-primary">
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">cedula</th>
-            <th scope="col">Accion</th>
+            <th scope="col" class="p-3">#</th>
+            <th scope="col" class="p-3">Nombre</th>
+            <th scope="col" class="p-3">Apellido</th>
+            <th scope="col" class="p-3">Cedula</th>
+            <th scope="col" class="p-3">Calificaciones</th>
            
           </tr>
         </thead>
@@ -33,15 +58,27 @@
                 <td>{{ $estudiante->nombre }}</td>
                 <td>{{ $estudiante->apellido }}</td>
                 <td>{{ $estudiante->cedula }}</td>
-                <td> <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $estudiante->idestudiantes }}">
-                  calificaciones
+                <td class="d-flex align-items-center">
+                  
+               
+                <form action="/lista" method="GET"  id="miFormulario">
+                  <div>
+                      <input type="hidden" value="{{ $estudiante->idestudiantes }}" name="idestudiantes">
+                  </div>
+                  <button type="submit" class="btn">xd</button>
+                </form>
+               
+                  <button type="submit" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $estudiante->idestudiantes }}">
+                  <img width="40" height="40" src="https://img.icons8.com/dusk/64/visible--v1.png" alt="visible--v1"/>
                 </button>
+             
+             
                 <div class="modal fade" id="exampleModal{{ $estudiante->idestudiantes }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-fullscreen">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel" >{{$estudiante->nombre}} {{$estudiante->apellido}}</h1> 
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button " class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                      
                       <div class="modal-body">
@@ -61,10 +98,18 @@
                                 <tr>
                                   <td>{{$item->tema}}</td>
                                   <td>{{$item->tipo_evaluacion}}</td>
-                                  <td><button type="button" class="btn btn-primary" onclick="abrirSegundaModal('#modalPequeña{{ $estudiante->idestudiantes }}')">
+                                 <td>
+                                  <td>   @foreach ($cali as $xd)
+                                    <td>
+                                      <p>ID del Estudiante: {{ $xd->calificacion }}</p>
+                                      <p>Calificación Máxima: {{ $xd->tema}}</p>
+                                      <p>{{$xd->idestudiantes}}</p>
+                                  </td>@endforeach
+                                </td></td>
+                                  <td><button type="button" class="btn btn-primary" onclick="abrirSegundaModal('#modalPequeña{{$item->idevaluaciones}}{{ $estudiante->idestudiantes }}')">
                                     <img width="30" height="30" src="https://img.icons8.com/ios-filled/50/plus.png" alt="plus"/>
                                   </button>
-                                  <div class="modal fade"  id="modalPequeña{{ $estudiante->idestudiantes }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="ModalPequeñaLabel">
+                                  <div class="modal fade"  id="modalPequeña{{$item->idevaluaciones}}{{ $estudiante->idestudiantes }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="ModalPequeñaLabel">
 
                                     <div class="modal-dialog modal-sm">
                                       <div class="modal-content">
@@ -121,6 +166,7 @@
             </tbody>
             @endforeach
           </table>
+       
         </div>
         </div>
                 <!-- Modal -->
@@ -132,7 +178,7 @@
 } 
                </script>
           
-      
+         
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

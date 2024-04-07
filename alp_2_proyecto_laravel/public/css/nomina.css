@@ -11,17 +11,27 @@
    background-color:#ff0f4a ;
    border-top-left-radius:35px ;
    border-top-right-radius:35px ;
-    padding: 50px;
-   padding: 30px;
+   padding: 25px;
   }
   .cont{
-    margin: 50px;
+    margin: 65px;
     border-radius: 40px;
   }
   .box{
-   box-shadow: rgba(255, 15, 155, 0.507) 0px 13px 26px;
-    padding: 50px;
+   box-shadow: rgba(255, 15, 155, 0.507) 0px 15px 28px;
+    padding-bottom: 55px;
+    padding-left:50px ;
+    padding-right: 50px;
+    padding-top: 20px;
     border-bottom-left-radius:35px  ;
     border-bottom-right-radius:35px  ;
     margin: 0px;
   }
+  .sel{
+    width: 300px;
+    margin: 15px;
+    display: flex;
+  }
+  .offcanvas-left, .offcanvas-right {
+    width: 50px; /* Ajusta este valor según tus necesidades */
+   }

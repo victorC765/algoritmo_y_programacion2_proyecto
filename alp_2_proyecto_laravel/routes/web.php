@@ -27,7 +27,7 @@ Route::get('/evaluacion', [CrudController::class, 'index'])->name("crud.index");
 
 Route::get('/lista', [NominaController::class, 'index'])->name("nomina.index");
 
-Route::get('/estudiante/{id}/calificaciones', [NominaController::class, 'mostrarCalificaciones']);
+
 
 Route::post('/añadir_nota',[NominaController::class,'create' ])->name("nomina.create");
 

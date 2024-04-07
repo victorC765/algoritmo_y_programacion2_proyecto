@@ -7,24 +7,22 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class NominaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $datan = DB::select("SELECT es.idestudiantes, p.nombre, p.apellido, p.cedula, p.fecha_nacimiento
         FROM estudiantes es 
         JOIN personas p ON p.idpersonas = es.personas_idpersonas;");
         $datae = DB::select("SELECT * FROM `evaluaciones` WHERE 1");
-        return view("nomina", ['est' => $datan, 'eval' => $datae]);
-    }
-
-    public function mostrarCalificaciones($id)
-    {
-        $topCalificaciones = DB::table('estudiantes_evaluaciones')
-            ->select('estudiantes_idestudiantes', DB::raw('MAX(calificacion) as max_calificacion'))
-            ->where('estudiantes_idestudiantes', $id)
-            ->groupBy('estudiantes_idestudiantes')
-            ->get();
+        $topCa = DB::select('SELECT p.nombre, p.apellido, p.cedula, es.idestudiantes, ev.tema,ev.tipo_evaluacion, n.calificacion
+        FROM estudiantes es
+        JOIN personas p ON es.personas_idpersonas = p.idpersonas
+        JOIN estudiantes_evaluaciones n ON es.idestudiantes = n.estudiantes_idestudiantes
+        JOIN evaluaciones ev ON n.evaluaciones_idevaluaciones = ev.idevaluaciones
+        
+        WHERE es.idestudiantes = ?
+        ORDER BY ev.idevaluaciones ASC', [ $request -> idestudiantes]);
     
-        return view('nomina')->with('calificaciones', $topCalificaciones);
+        return view("nomina", ['est' => $datan, 'eval' => $datae, 'cali' => $topCa]);
     }
 
     public function create(Request $request){
