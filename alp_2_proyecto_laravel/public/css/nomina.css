@@ -1,0 +1,27 @@
+.fondo-difuminado {
+    background-color: rgb(29, 241, 160);
+    backdrop-filter: blur(90px);
+    -webkit-backdrop-filter: blur(10px);
+}
+  .modal-contentp {
+    z-index: 1060 !important; /* Ajusta este valor según sea necesario */
+  }
+  .n{
+   text-align: center;
+   background-color:#ff0f4a ;
+   border-top-left-radius:35px ;
+   border-top-right-radius:35px ;
+    padding: 50px;
+   padding: 30px;
+  }
+  .cont{
+    margin: 50px;
+    border-radius: 40px;
+  }
+  .box{
+   box-shadow: rgba(255, 15, 155, 0.507) 0px 13px 26px;
+    padding: 50px;
+    border-bottom-left-radius:35px  ;
+    border-bottom-right-radius:35px  ;
+    margin: 0px;
+  }

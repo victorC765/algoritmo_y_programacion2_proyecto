@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/nomina.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     
-    <title>Document</title>
+    <title>Nomina Estudiantil</title>
 </head>
 <body>
-  <h1>estudiantes</h1>
- 
-    <table class="table borderless">
+  <div class="cont">
+  <h1 class="n">estudiantes</h1>
+    <div class="box">
+    <table class="table borderless " style="margin: 0%">
         <thead>
           <tr class="table-primary">
             <th scope="col">#</th>
@@ -51,6 +53,7 @@
                                     <tr>
                                     <th>evaluaciones</th>
                                     <th>tipo de evaluación</th>
+                                    <th>Acción</th>
                                   </tr>
                                   </thead>
                                   @foreach ($eval as $item)
@@ -59,14 +62,15 @@
                                   <td>{{$item->tema}}</td>
                                   <td>{{$item->tipo_evaluacion}}</td>
                                   <td><button type="button" class="btn btn-primary" onclick="abrirSegundaModal('#modalPequeña{{ $estudiante->idestudiantes }}')">
-                                    Launch demo modal
+                                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/50/plus.png" alt="plus"/>
                                   </button>
                                   <div class="modal fade"  id="modalPequeña{{ $estudiante->idestudiantes }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="ModalPequeñaLabel">
 
-                                    <div class="modal-dialog">
-                                      <div class="modal-content modal-contentp">
+                                    <div class="modal-dialog modal-sm">
+                                      <div class="modal-content">
+                                      <div class="fondo-difuminado">
                                         <div class="modal-header">
-                                          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                          <h1 class="modal-title fs-5" id="exampleModalLabel">Cargar Nota</h1>
                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -79,13 +83,14 @@
                                 <input  type="hidden" value="{{$estudiante->idestudiantes}}" name="idestudiantes">
                               </div>
                               
-                                <div class="i">
+                                <div>
                                   <label for="" >nota</label>
                                 <input type="number" name="nota" min="0" max="100">
                                 <button class="btn btn-info" type="submit">cargar</button>
                                 </form>
                               </div>
                             </div>
+                          </div>
                                         </div>
                                         
                                       </div>
@@ -116,7 +121,8 @@
             </tbody>
             @endforeach
           </table>
-     
+        </div>
+        </div>
                 <!-- Modal -->
                <script>
               function abrirSegundaModal(idModal) {
@@ -130,12 +136,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
-<style>
- .modal-backdrop {
-    background-color: rgba(0, 0, 0, 0.5); /* Cambia el color de fondo y la opacidad */
-}
-.modal-contentp {
-  z-index: 1060 !important; /* Ajusta este valor según sea necesario */
-}
-</style>
 </html>
