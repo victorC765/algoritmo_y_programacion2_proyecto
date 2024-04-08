@@ -65,10 +65,10 @@
                   <div>
                       <input type="hidden" value="{{ $estudiante->idestudiantes }}" name="idestudiantes">
                   </div>
-                  <button type="submit" class="btn">xd</button>
+                  <button type="submit" class="btn btn-warning m-1"><img width="40" height="40" src="https://img.icons8.com/dusk/64/upload--v1.png" alt="upload--v1"/></button>
                 </form>
                
-                  <button type="submit" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $estudiante->idestudiantes }}">
+                  <button type="submit" class="btn btn-info m-1" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $estudiante->idestudiantes }}">
                   <img width="40" height="40" src="https://img.icons8.com/dusk/64/visible--v1.png" alt="visible--v1"/>
                 </button>
              
@@ -93,20 +93,13 @@
                                     <th>Acción</th>
                                   </tr>
                                   </thead>
-                                  @foreach ($eval as $item)
+                                 
                                   <tbody>
+                                    @foreach ($eval as $item)
                                 <tr>
-                                  <td>{{$item->tema}}</td>
+                                <td>{{$item->tema}}</td>
                                   <td>{{$item->tipo_evaluacion}}</td>
-                                 <td>
-                                  <td>   @foreach ($cali as $xd)
-                                    <td>
-                                      <p>ID del Estudiante: {{ $xd->calificacion }}</p>
-                                      <p>Calificación Máxima: {{ $xd->tema}}</p>
-                                      <p>{{$xd->idestudiantes}}</p>
-                                  </td>@endforeach
-                                </td></td>
-                                  <td><button type="button" class="btn btn-primary" onclick="abrirSegundaModal('#modalPequeña{{$item->idevaluaciones}}{{ $estudiante->idestudiantes }}')">
+                                   <td><button type="button" class="btn btn-primary" onclick="abrirSegundaModal('#modalPequeña{{$item->idevaluaciones}}{{ $estudiante->idestudiantes }}')">
                                     <img width="30" height="30" src="https://img.icons8.com/ios-filled/50/plus.png" alt="plus"/>
                                   </button>
                                   <div class="modal fade"  id="modalPequeña{{$item->idevaluaciones}}{{ $estudiante->idestudiantes }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="ModalPequeñaLabel">
@@ -143,8 +136,15 @@
                                   </div>
                                 </td>
                                 </tr>
+                                @endforeach
+                               
+                                  @foreach ($cali as $xd)
+                                 
+                                 <tr> <td> calificion {{ $xd->calificacion }}</td></tr>
+                                  
+                                    @endforeach
+                                  
                             </tbody>
-                            @endforeach
                             </table>
                             
                               </div>
@@ -163,8 +163,12 @@
               </td>
           
               </tr>
+              @endforeach
+              
+                 
+           
             </tbody>
-            @endforeach
+           
           </table>
        
         </div>

@@ -35,3 +35,6 @@
   .offcanvas-left, .offcanvas-right {
     width: 50px; /* Ajusta este valor según tus necesidades */
    }
+   .uni{
+    display: flex;
+   }
