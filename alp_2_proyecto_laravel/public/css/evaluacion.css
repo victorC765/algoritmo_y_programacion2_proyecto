@@ -1,0 +1,11 @@
+html, body{
+    background-image: url(../assets/camara-vintage-rollei-35s-con-luces-neon_3840x2160_xtrafondos.com.jpg);
+    background: cover;
+}
+.er{
+   color: aqua;
+   background-color: black;
+   max-width: 100%;
+   width: 400px;
+    text-align: center;
+}
