@@ -85,80 +85,70 @@
                         <div class="eva">
                         <h3 class="mdt"><img width="60" height="60" src="https://img.icons8.com/dusk/64/exam.png" alt="exam"/>Evaluaciones</h3>
                      
-                              <div class="table-container">
+                             
                                 <table class="table">
                                   <thead>
                                     <tr>
                                     <th >Acción</th>
                                     <th>evaluaciones</th>
                                     <th>tipo de evaluación</th>
+                                    <th>Notas</th>
                                   </tr>
                                  
                                   </thead>
                                  
                                   <tbody>
-                                    @foreach ($eval as $item)
-                                <tr>
-                                   <td><button type="button" class="btn btn-success" onclick="abrirSegundaModal('#modalPequeña{{$item->idevaluaciones}}{{ $estudiante->idestudiantes }}')">
-                                    <img width="40" height="40" src="https://img.icons8.com/dotty/80/add.png" alt="add"/>
-                                  </button>
-                                  <div class="modal fade"  id="modalPequeña{{$item->idevaluaciones}}{{ $estudiante->idestudiantes }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="ModalPequeñaLabel">
-
-                                    <div class="modal-dialog modal-sm">
-                                      <div class="modal-content">
-                                      <div class="fondo-difuminado">
-                                        <div class="modal-header">
-                                          <h1 class="modal-title fs-5" id="exampleModalLabel">Cargar Nota</h1>
-                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                           <form action="{{route("nomina.create")}}" method="post">
-                              @csrf
-                              <div>
-                                <input  type="hidden" value="{{$item->idevaluaciones}}" name="idevaluaciones" >
-                              </div>
-                                  <div class="i">
-                                <input  type="hidden" value="{{$estudiante->idestudiantes}}" name="idestudiantes">
-                              </div>
+                                    @foreach ($cali as $xd)
+                                  
                               
-                                <div>
-                                  <label for="" >nota</label>
-                                <input type="number" name="nota" min="0" max="100">
-                                <button class="btn btn-info" type="submit">cargar</button>
-                                </form>
-                              </div>
-                            </div>
-                          </div>
-                                        </div>
-                                        
-                                      </div>
-                                    </div>
-                                  </div>
+                                <tr>
+                                   <td>
                                 </td>
                                 
-                                <td>{{$item->tema}}</td>
-                                  <td>{{$item->tipo_evaluacion}}</td>
+                                <td>{{$xd->tema}}</td>
+                                  <td>{{$xd->tipo_evaluacion}}</td>
+                                  <td > {{ $xd->calificacion }}</td>
                                     </tr>
                                     @endforeach
                                   
                             </tbody>
                             </table>
-                            <table class="table">
-                              <tr>
-                                 <th >Notas</th>
-                              </tr>
-                             
-                                @foreach ($cali as $xd)
-                                <tr>
-                                       <td > {{ $xd->calificacion }}</td>
-                                  </tr>
-                                @endforeach
-                             
-                             </table>
-                            
+                            <button type="button" class="btn btn-success" onclick="abrirSegundaModal('#modalPequeña{{ $estudiante->idestudiantes }}')">
+                              <img width="40" height="40" src="https://img.icons8.com/dotty/80/add.png" alt="add"/>
+                            </button>
+                            <div class="modal fade"  id="modalPequeña{{ $estudiante->idestudiantes }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="ModalPequeñaLabel">
+
+                              <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                <div class="fondo-difuminado">
+                                  <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cargar Nota</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                     <form action="{{route("nomina.create")}}" method="post">
+                        @csrf
+                        <div>
+                        <label>Evaluación:</label>
+                        <select  class="form-select"name="idevaluaciones" >
+                          <option selected>Selecione una Evaluación</option>
+                          @foreach ($eval as $val)
+                          <option value="{{$val->idevaluaciones}}">{{$val->tema}}</option>
+                          @endforeach
+                        </select>
+                        </div>
+                          <input  type="hidden"   value="{{$estudiante->idestudiantes}}" name="idestudiantes">
+                          <label>nota:</label>
+                          <input type="number" class="form-control" name="nota"><br>
+                          <button class="btn btn-info"  type="submit">cargar</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                                  
+                                </div>
                               </div>
-                          
-                    
+                            </div>
                       </div>
                     </div>
                   </div>

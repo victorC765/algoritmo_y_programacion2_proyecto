@@ -1,8 +1,8 @@
 
 .conte{
     border-radius: 50px;
-    margin: 70px;
-    box-shadow: rgba(85, 36, 199, 0.349) 0px 1px 0px, rgba(85, 36, 199, 0.308) 0px 8px 24px, rgba(85, 36, 199, 0.336) 0px 16px 48px;
+    margin: 70px; 
+   box-shadow: rgba(85, 36, 199, 0.349) 0px 1px 0px, rgba(85, 36, 199, 0.308) 0px 8px 24px, rgba(85, 36, 199, 0.336) 0px 16px 48px;
 }
 .cabe{
     display: flex;
