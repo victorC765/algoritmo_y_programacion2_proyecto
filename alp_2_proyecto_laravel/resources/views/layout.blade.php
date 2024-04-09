@@ -11,8 +11,23 @@
     <link rel="stylesheet" href="{{ asset('css/evaluacion.css') }}">
 </head>
 <body>
+  <header>
+    <button class="btn btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"> ≡ </button>
 
-    <h1  class="er">Carga de Evaluaciones</h1>
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Lista de Navegación</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <a href="./lista"><button class="btn btn-danger"> <img src="{{ asset('img/lista-de-verificacion.png') }}" alt="lista" width="135" height="135" /></button></a>
+  </div>
+</div>
+  </header>
+     <div class="conte">
+      <div class="cabe">
+        <img width="60" height="60" src="https://img.icons8.com/dusk/64/test-partial-passed.png" alt="test-partial-passed"/><h1>Carga de Evaluaciones</h1>
+  </div>
     @if (session("añadido"))
     <div class="alert alert-success">{{ session("añadido") }}</div>
     @endif
@@ -29,7 +44,7 @@
       }
     </script>
     <div class="p-5 table-responsive">
-        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#AñadirModal">Añadir Nueva Evaluación</button>
+        <button class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#AñadirModal"><img width="50" height="50" src="https://img.icons8.com/dusk/64/add-property--v1.png" alt="add-property--v1"/>Añadir Evaluación</button>
 
         <div class="modal fade" id="AñadirModal" tabindex="-1" aria-labelledby="AñadirModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -166,7 +181,7 @@
               @endforeach
             </table>
             
-          
+          </div>
        
         
            

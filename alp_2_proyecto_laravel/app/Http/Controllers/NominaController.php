@@ -13,7 +13,7 @@ class NominaController extends Controller
         FROM estudiantes es 
         JOIN personas p ON p.idpersonas = es.personas_idpersonas;");
         $datae = DB::select("SELECT * FROM `evaluaciones` WHERE 1");
-        $topCa = DB::select('SELECT p.nombre, p.apellido, p.cedula, es.idestudiantes, ev.tema,ev.tipo_evaluacion, n.calificacion
+        $topCa = DB::select('SELECT p.nombre, p.apellido, p.cedula, es.idestudiantes,ev.idevaluaciones, ev.tema,ev.tipo_evaluacion, n.calificacion
         FROM estudiantes es
         JOIN personas p ON es.personas_idpersonas = p.idpersonas
         JOIN estudiantes_evaluaciones n ON es.idestudiantes = n.estudiantes_idestudiantes
