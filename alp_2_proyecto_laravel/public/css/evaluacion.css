@@ -14,3 +14,16 @@
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
+.bor{
+    margin: 10px;
+}
+.modal-content-custom{
+    background-color: #e0d8ff;
+    border-radius:40px ;
+}
+.modal-header-custom{
+    background-color:#710ae7;
+    border-top-left-radius:40px;
+    border-top-right-radius:40px  ;
+    padding: 30px;
+}

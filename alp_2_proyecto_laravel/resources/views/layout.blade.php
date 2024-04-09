@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Evaluaciones</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -44,12 +44,13 @@
       }
     </script>
     <div class="p-5 table-responsive">
+      <div class="bor">
         <button class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#AñadirModal"><img width="50" height="50" src="https://img.icons8.com/dusk/64/add-property--v1.png" alt="add-property--v1"/>Añadir Evaluación</button>
-
+        </div>
         <div class="modal fade" id="AñadirModal" tabindex="-1" aria-labelledby="AñadirModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
+              <div class="modal-content modal-content-custom">
+                <div class="modal-header modal-header-custom">
                   <h1 class="modal-title fs-5" id="AñadirModalLabel">Añadir Evaluaciones</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -123,8 +124,9 @@
                     <a href="{{route("crud.delete",$item->idevaluaciones)}}" onClick="return res()" class="btn btn-danger btn"><img width="27" height="30" src="https://img.icons8.com/dusk/64/delete--v1.png" alt="delete--v1"/></a>
                     <div class="modal fade" id="EditarModal{{$item->idevaluaciones}}" tabindex="-1" aria-labelledby="EditarModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
+                        <div class="">
+                        <div class="modal-content modal-content-custom">
+                          <div class="modal-header modal-header-custom">
                             <h1 class="modal-title fs-5" id="EditarModalLabel">Editar Evaluaciones</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
@@ -172,6 +174,7 @@
                                 </form>
                           </div>
                         </div>
+    </div>
                         </div>
                       </div>
                     </div>

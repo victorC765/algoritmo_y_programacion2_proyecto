@@ -65,7 +65,7 @@
                   <div>
                       <input type="hidden" value="{{ $estudiante->idestudiantes }}" name="idestudiantes">
                   </div>
-                  <button type="submit" class="btn btn-warning m-1"><img width="40" height="40" src="https://img.icons8.com/dusk/64/upload--v1.png" alt="upload--v1"/></button>
+                  <button type="submit" class="btn btn-warning m-1"><img width="40" height="40" src="https://img.icons8.com/plasticine/100/recurring-appointment.png" alt="recurring-appointment"/></button>
                 </form>
                
                   <button type="submit" class="btn btn-info m-1" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $estudiante->idestudiantes }}">
@@ -77,7 +77,7 @@
                   <div class="modal-dialog modal-fullscreen">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel" ><span>{{$estudiante->nombre}} {{$estudiante->apellido}}</span> <span>{{$estudiante->cedula}}</span></h1> 
+                        <h1 class="modal-title fs-5" id="exampleModalLabel" ><span>Estudiantes: {{$estudiante->nombre}} {{$estudiante->apellido}}</span><br> <span>Cedula: {{$estudiante->cedula}}</span></h1> 
                         <button type="button " class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                      
