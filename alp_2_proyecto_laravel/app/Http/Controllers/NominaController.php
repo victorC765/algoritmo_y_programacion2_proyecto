@@ -13,7 +13,7 @@ class NominaController extends Controller
         FROM estudiantes es 
         JOIN personas p ON p.idpersonas = es.personas_idpersonas;");
         $datae = DB::select("SELECT * FROM `evaluaciones` WHERE 1");
-        $topCa = DB::select('SELECT p.nombre, p.apellido, p.cedula, es.idestudiantes,ev.idevaluaciones, ev.tema,ev.tipo_evaluacion, n.calificacion
+        $topCa = DB::select('SELECT p.nombre, p.apellido, p.cedula, es.idestudiantes,ev.idevaluaciones, ev.tema,ev.tipo_evaluacion, n.calificacion, n.idestudiantes_evaluaciones
         FROM estudiantes es
         JOIN personas p ON es.personas_idpersonas = p.idpersonas
         JOIN estudiantes_evaluaciones n ON es.idestudiantes = n.estudiantes_idestudiantes
@@ -43,4 +43,22 @@ class NominaController extends Controller
             return back()->with("error","Error al añadir la evaluación");
           }
     }
+    public function update(Request $request){
+      try{
+         $sql=DB::update("UPDATE  `estudiantes_evaluaciones` SET `estudiantes_idestudiantes`, `evaluaciones_idevaluaciones`, `calificacion`  WHERE `idestudiantes_evaluaciones`",
+         [
+           $request->idestudiantes,
+           $request->idevaluaciones,
+           $request->nota,
+          
+         ]);
+      }catch(\Throwable $th){
+          $sql = 0;
+       }
+        if($sql == true){
+          return back()->with("añadido","evaluación añadida correctamente");
+        }else{
+          return back()->with("error","Error al añadir la evaluación");
+        }
+  }
 }

@@ -38,7 +38,9 @@
         <label for="floatingSelect">Secciones</label>
       </div>
       <button class="btn btn-danger">🔍</button>
+
     </div>
+
     <table class="table  table-hover" style="margin: 0%">
         <thead>
           <tr class="table-primary">
@@ -86,13 +88,16 @@
                         <h3 class="mdt"><img width="60" height="60" src="https://img.icons8.com/dusk/64/exam.png" alt="exam"/>Evaluaciones</h3>
                      
                              
-                                <table class="table">
+                            <button type="button" class="btn btn-success" onclick="abrirSegundaModal('#modalPequeña{{ $estudiante->idestudiantes }}')">
+                              <img width="50" height="50" src="https://img.icons8.com/dusk/64/add-property--v1.png" alt="add-property--v1"/>Añadir Nota
+                            </button>
+                                <table class="table table-hover">
                                   <thead>
-                                    <tr>
-                                    <th >Acción</th>
+                                    <tr class="table-danger">
                                     <th>evaluaciones</th>
                                     <th>tipo de evaluación</th>
                                     <th>Notas</th>
+                                    <th >Acción</th>
                                   </tr>
                                  
                                   </thead>
@@ -102,20 +107,57 @@
                                   
                               
                                 <tr>
-                                   <td>
-                                </td>
-                                
+                                <td>{{$xd->idestudiantes_evaluaciones}}</td>
                                 <td>{{$xd->tema}}</td>
                                   <td>{{$xd->tipo_evaluacion}}</td>
                                   <td > {{ $xd->calificacion }}</td>
+                                  <td><button class="btn btn-warning"  onclick="abrirSegundaModal('#modalEditar{{$xd->idestudiantes_evaluaciones}}')"><img width="27" height="30" src="https://img.icons8.com/dusk/64/edit--v1.png" alt="edit--v1"/></button>
+                                    <div class="modal fade"  id="modalEditar{{$xd->idestudiantes_evaluaciones}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="ModalEditarLabel">
+
+                                      <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                        <div class="fondo-difuminado">
+                                          <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Nota</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                          <div class="modal-body">
+                                             <form action="{{route("nomina.create")}}" method="post">
+                                @csrf
+                                <div>
+                                <label>Evaluación:</label>
+                                <select  class="form-select"name="idevaluaciones" >
+                                  <option selected>Selecione una Evaluación</option>
+                                  @foreach ($eval as $val)
+                                  <option value="{{$val->idevaluaciones}}">{{$val->tema}}</option>
+                                  @endforeach
+                                </select>
+                                </div>
+                                  <input  type="hidden"   value="{{$estudiante->idestudiantes}}" name="idestudiantes">
+                                  <label>nota:</label>
+                                  <input type="number" class="form-control" name="nota"><br>
+                                  <button class="btn btn-info"  type="submit">cargar</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                                          
+                                        </div>
+                                      </div>
+                                    </div>
+                              </div>
+                            </div>
+                          </div>
+                     
+                        </div>
+                      </div>
+                      
+                                  </td>
                                     </tr>
                                     @endforeach
                                   
                             </tbody>
                             </table>
-                            <button type="button" class="btn btn-success" onclick="abrirSegundaModal('#modalPequeña{{ $estudiante->idestudiantes }}')">
-                              <img width="40" height="40" src="https://img.icons8.com/dotty/80/add.png" alt="add"/>
-                            </button>
                             <div class="modal fade"  id="modalPequeña{{ $estudiante->idestudiantes }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="ModalPequeñaLabel">
 
                               <div class="modal-dialog modal-sm">
