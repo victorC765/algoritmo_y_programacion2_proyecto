@@ -34,20 +34,23 @@
         <h1 class="n"><img width="80" height="80"
                 src="https://img.icons8.com/plasticine/100/graduation-cap.png" alt="graduation-cap" />Estudiantes</h1>
         <div class="box">
-            <div class="sel">
+           
+              <form action="{{route('nomina.index')}}" method="GET">
+                <div class="sel">
                 <div class="form-floating">
-                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <select class="form-select" id="floatingSelect" name="seccion" aria-label="Floating label select example">
                         <option selected>Selecione una sección</option>
                         @foreach ($sel as $se)
-                        <option value="{{$se->nombre_seccion}}">{{$se->nombre_seccion}}</option>
+                        <option value="{{$se->idsecciones}}">{{$se->nombre_seccion}}</option>
                         @endforeach
                     </select>
                     <label for="floatingSelect">Secciones</label>
                 </div>
-                <button class="btn btn-danger">🔍</button>
+                <button class="btn btn-danger">🔍</button></div>
 
-            </div>
+              </form>
 
+            
             <table class="table  table-hover" style="margin: 0%">
                 <thead>
                     <tr class="table-primary">
