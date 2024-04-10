@@ -13,6 +13,7 @@ class NominaController extends Controller
         FROM estudiantes es 
         JOIN personas p ON p.idpersonas = es.personas_idpersonas;");
         $datae = DB::select("SELECT * FROM `evaluaciones` WHERE 1");
+        $selec = DB::select("SELECT * FROM `secciones` WHERE 1");
         $topCa = DB::select('SELECT p.nombre, p.apellido, p.cedula, es.idestudiantes,ev.idevaluaciones, ev.tema,ev.tipo_evaluacion, n.calificacion, n.idestudiantes_evaluaciones
         FROM estudiantes es
         JOIN personas p ON es.personas_idpersonas = p.idpersonas
@@ -22,7 +23,7 @@ class NominaController extends Controller
         WHERE es.idestudiantes = ?
         ORDER BY ev.idevaluaciones ASC', [ $request -> idestudiantes]);
     
-        return view("nomina", ['est' => $datan, 'eval' => $datae, 'cali' => $topCa]);
+        return view("nomina", ['est' => $datan, 'eval' => $datae, 'cali' => $topCa, 'sel' => $selec]);
     }
 
     public function create(Request $request){
@@ -45,11 +46,11 @@ class NominaController extends Controller
     }
     public function update(Request $request){
       try{
-         $sql=DB::update("UPDATE  `estudiantes_evaluaciones` SET `estudiantes_idestudiantes`, `evaluaciones_idevaluaciones`, `calificacion`  WHERE `idestudiantes_evaluaciones`",
+         $sql=DB::update("UPDATE  `estudiantes_evaluaciones` SET  `calificacion`=?  WHERE `idestudiantes_evaluaciones`=?",
          [
-           $request->idestudiantes,
-           $request->idevaluaciones,
            $request->nota,
+           
+           $request->idestudiantes_evaluaciones
           
          ]);
       }catch(\Throwable $th){

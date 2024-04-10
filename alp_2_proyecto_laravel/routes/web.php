@@ -31,6 +31,8 @@ Route::get('/lista', [NominaController::class, 'index'])->name("nomina.index");
 
 Route::post('/añadir_nota',[NominaController::class,'create' ])->name("nomina.create");
 
+Route::post('/modificar_nota',[NominaController::class,'update' ])->name("nomina.update");
+
 //ruta para el insert into
 Route::post('/añadir_evaluacion', [CrudController::class, 'create'])->name("crud.create");
 
