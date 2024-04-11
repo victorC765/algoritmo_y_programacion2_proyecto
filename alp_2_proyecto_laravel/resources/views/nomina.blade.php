@@ -27,6 +27,15 @@
                 <a href="./evaluacion"><button class="btn btn-success"> <img
                             src="{{ asset('img/evaluation_8921149.png') }}" alt="icono de evaluacion" width="135"
                             height="135" /></button></a>
+                <a data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div><button class="btn btn-warning">
+                            <img src="{{ asset('img/salida-de-emergencia.png') }}" alt="icono de estado de estudiantil"
+                                width="135" height="135" />
+                            <br>cierre de curso
+                        </button>
+                    </div>
+
+                </a>
             </div>
         </div>
     </header>
@@ -34,23 +43,25 @@
         <h1 class="n"><img width="80" height="80"
                 src="https://img.icons8.com/plasticine/100/graduation-cap.png" alt="graduation-cap" />Estudiantes</h1>
         <div class="box">
-           
-              <form action="{{route('nomina.index')}}" method="GET">
+
+            <form action="{{ route('nomina.index') }}" method="GET">
                 <div class="sel">
-                <div class="form-floating">
-                    <select class="form-select" id="floatingSelect" name="seccion" aria-label="Floating label select example">
-                        <option selected>Selecione una sección</option>
-                        @foreach ($sel as $se)
-                        <option value="{{$se->idsecciones}}">{{$se->nombre_seccion}}</option>
-                        @endforeach
-                    </select>
-                    <label for="floatingSelect">Secciones</label>
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" name="seccion"
+                            aria-label="Floating label select example">
+                            <option selected>Selecione una sección</option>
+                            @foreach ($sel as $se)
+                                <option value="{{ $se->idsecciones }}">{{ $se->nombre_seccion }}</option>
+                            @endforeach
+                        </select>
+                        <label for="floatingSelect">Secciones</label>
+                    </div>
+                    <button class="btn btn-danger">🔍</button>
                 </div>
-                <button class="btn btn-danger">🔍</button></div>
 
-              </form>
+            </form>
 
-            
+
             <table class="table  table-hover" style="margin: 0%">
                 <thead>
                     <tr class="table-primary">
@@ -66,28 +77,31 @@
                     <tbody>
 
                         <tr>
-                            <form action="{{route('nomina.mandar')}}" method="get">
-                            <td>{{ $estudiante->idestudiantes }}</td>
-                            <td name="nombre">{{ $estudiante->nombre }}</td>
-                            <td name="apellido">{{ $estudiante->apellido }}</td>
-                            <td name="cedula">{{ $estudiante->cedula }}</td>
-                            <td class="d-flex align-items-center">
-                               
+                            <form action="{{ route('nomina.mandar') }}" method="get">
+                                <td>{{ $estudiante->idestudiantes }}</td>
+                                <td name="nombre">{{ $estudiante->nombre }}</td>
+                                <td name="apellido">{{ $estudiante->apellido }}</td>
+                                <td name="cedula">{{ $estudiante->cedula }}</td>
+                                <td class="d-flex align-items-center">
+
                                     @csrf
                                     <div>
-                                        <input type="hidden" value="{{ $estudiante->idestudiantes }}" name="idestudiantes">
+                                        <input type="hidden" value="{{ $estudiante->idestudiantes }}"
+                                            name="idestudiantes">
                                         <input type="hidden" value="{{ $estudiante->nombre }}" name="nombre">
-                                        <input type="hidden" value="{{ $estudiante->apellido}}" name="apellido">
-                                        <input type="hidden" value="{{ $estudiante->cedula}}" name="cedula">
-                                        <input type="hidden" value="{{ $estudiante->nombre_seccion}}" name="nombre_seccion">
-                                        </div>
-                               
-                                <a href="./nota">
-                                <button type="submit" class="btn btn-info m-1">
-                                    <img width="40" height="40"
-                                        src="https://img.icons8.com/dusk/64/visible--v1.png" alt="visible--v1" />
-                                </button>
-                          
+                                        <input type="hidden" value="{{ $estudiante->apellido }}" name="apellido">
+                                        <input type="hidden" value="{{ $estudiante->cedula }}" name="cedula">
+                                        <input type="hidden" value="{{ $estudiante->nombre_seccion }}"
+                                            name="nombre_seccion">
+                                    </div>
+
+                                    <a href="./nota">
+                                        <button type="submit" class="btn btn-info m-1">
+                                            <img width="40" height="40"
+                                                src="https://img.icons8.com/dusk/64/visible--v1.png"
+                                                alt="visible--v1" />
+                                        </button>
+
                             </form>
                             </a>
         </div>
@@ -100,6 +114,29 @@
         </table>
 
     </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+
+            <div class="modal-content ">
+                <div class="xq">
+                    <div class="modal-header adv">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Cierre de Session</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h3> ¿Esta seguro que desea cerrar session?</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <a href="/"><button type="button" class="btn btn-danger">Aceptar</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Modal -->
     <script>
