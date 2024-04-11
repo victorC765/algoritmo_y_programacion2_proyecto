@@ -66,185 +66,29 @@
                     <tbody>
 
                         <tr>
+                            <form action="{{route('nomina.mandar')}}" method="get">
                             <td>{{ $estudiante->idestudiantes }}</td>
-                            <td>{{ $estudiante->nombre }}</td>
-                            <td>{{ $estudiante->apellido }}</td>
-                            <td>{{ $estudiante->cedula }}</td>
+                            <td name="nombre">{{ $estudiante->nombre }}</td>
+                            <td name="apellido">{{ $estudiante->apellido }}</td>
+                            <td name="cedula">{{ $estudiante->cedula }}</td>
                             <td class="d-flex align-items-center">
-
-
-                                <form action="/lista" method="GET" id="miFormulario">
+                               
+                                    @csrf
                                     <div>
-                                        <input type="hidden" value="{{ $estudiante->idestudiantes }}"
-                                            name="idestudiantes">
-                                   
-
-                                <button type="submit" class="btn btn-info m-1" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal{{ $estudiante->idestudiantes }}">
+                                        <input type="hidden" value="{{ $estudiante->idestudiantes }}" name="idestudiantes">
+                                        <input type="hidden" value="{{ $estudiante->nombre }}" name="nombre">
+                                        <input type="hidden" value="{{ $estudiante->apellido}}" name="apellido">
+                                        <input type="hidden" value="{{ $estudiante->cedula}}" name="cedula">
+                                        </div>
+                               
+                                <a href="./nota">
+                                <button type="submit" class="btn btn-info m-1">
                                     <img width="40" height="40"
                                         src="https://img.icons8.com/dusk/64/visible--v1.png" alt="visible--v1" />
                                 </button>
-                              </div>
+                          
                             </form>
-
-
-                                <div class="modal fade" id="exampleModal{{ $estudiante->idestudiantes }}" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-fullscreen">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel"><span>Estudiantes:
-                                                        {{ $estudiante->nombre }}
-                                                        {{ $estudiante->apellido }}</span><br> <span>Cedula:
-                                                        {{ $estudiante->cedula }}</span></h1>
-                                                <button type="button " class="btn-close btn-danger"
-                                                    data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-
-                                            <div class="modal-body">
-                                                <div class="eva">
-                                                    <h3 class="mdt"><img width="60" height="60"
-                                                            src="https://img.icons8.com/dusk/64/exam.png"
-                                                            alt="exam" />Evaluaciones</h3>
-
-
-                                                    <button type="button" class="btn btn-success"
-                                                        onclick="abrirSegundaModal('#modalPequeña{{ $estudiante->idestudiantes }}')">
-                                                        <img width="50" height="50"
-                                                            src="https://img.icons8.com/dusk/64/add-property--v1.png"
-                                                            alt="add-property--v1" />Añadir Nota
-                                                    </button>
-                                                    <table class="table table-hover">
-                                                        <thead>
-                                                            <tr class="table-danger">
-                                                              <th>#</th>
-                                                                <th>evaluaciones</th>
-                                                                <th>tipo de evaluación</th>
-                                                                <th>Notas</th>
-                                                                <th>Acción</th>
-                                                            </tr>
-
-                                                        </thead>
-
-                                                        <tbody>
-                                                            @foreach ($cali as $xd)
-                                                                <tr>
-                                                                    <td>{{ $xd->idestudiantes_evaluaciones }}</td>
-                                                                    <td>{{ $xd->tema }}</td>
-                                                                    <td>{{ $xd->tipo_evaluacion }}</td>
-                                                                    <td> {{ $xd->calificacion }}</td>
-                                                                    <td>
-                                                                        <button class="btn btn-warning"
-                                                                            onclick="abrirSegundaModal('#staticBackdrop{{ $xd->idestudiantes_evaluaciones }}{{ $estudiante->idestudiantes }}')"><img
-                                                                                width="27" height="30"
-                                                                                src="https://img.icons8.com/dusk/64/edit--v1.png"
-                                                                                alt="edit--v1" /></button>
-                                                                        <!-- Modal -->
-                                                                        <div class="modal fade"
-                                                                            id="staticBackdrop{{ $xd->idestudiantes_evaluaciones }}{{ $estudiante->idestudiantes }}"
-                                                                            data-bs-keyboard="false" tabindex="-1"
-                                                                            aria-labelledby="staticBackdropLabel"
-                                                                            aria-hidden="true">
-                                                                            <div class="modal-dialog modal-sm">
-                                                                                
-                                                                                    <div class=" modal-content ">
-                                                                                      <div class="modal-content-custom">
-                                                                                        <div class="modal-header">
-                                                                                            <h1 class="modal-title fs-5"
-                                                                                                id="staticBackdropLabel">
-                                                                                                 Editar Nota</h1>
-                                                                                            <button type="button"
-                                                                                                class="btn-close"
-                                                                                                data-bs-dismiss="modal"
-                                                                                                aria-label="Close"></button>
-                                                                                        </div>
-                                                                                        <form action="{{route('nomina.update')}} " method="POST">
-                                                                                            @csrf
-                                                                                            <div class="modal-body">
-
-                                                                                                <input type="hidden"
-                                                                                                    value="{{  $xd->idestudiantes_evaluaciones}}"
-                                                                                                    name="idestudiantes_evaluaciones">
-                                                                                                <label>nota:</label>
-                                                                                                <input type="number"
-                                                                                                    class="form-control"
-                                                                                                    name="nota"><br>
-
-
-                                                                                            </div>
-                                                                                            <div class="modal-footer">
-                                                                                                <button type="button"
-                                                                                                    class="btn btn-secondary"
-                                                                                                    data-bs-dismiss="modal">Close</button>
-                                                                                                <button
-                                                                                                    class="btn btn-info"
-                                                                                                    type="submit">cargar</button>
-                                                                                            </div>
-                                                                                        </form>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            @endforeach
-
-                                                        </tbody>
-                                                    </table>
-                                                    <div class="modal fade"
-                                                        id="modalPequeña{{ $estudiante->idestudiantes }}"
-                                                        data-backdrop="static" data-keyboard="false" tabindex="-1"
-                                                        aria-labelledby="ModalPequeñaLabel">
-
-                                                        <div class="modal-dialog modal-sm">
-                                                            <div class="modal-content">
-                                                                <div class="fondo-difuminado">
-                                                                    <div class="modal-header">
-                                                                        <h1 class="modal-title fs-5"
-                                                                            id="exampleModalLabel">Cargar Nota</h1>
-                                                                        <button type="button" class="btn-close"
-                                                                            data-bs-dismiss="modal"
-                                                                            aria-label="Close"></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <form action="{{ route('nomina.create') }}"
-                                                                            method="post">
-                                                                            @csrf
-                                                                            <div>
-                                                                                <label>Evaluación:</label>
-                                                                                <select
-                                                                                    class="form-select"name="idevaluaciones">
-                                                                                    <option selected>Selecione una
-                                                                                        Evaluación</option>
-                                                                                    @foreach ($eval as $val)
-                                                                                        <option
-                                                                                            value="{{ $val->idevaluaciones }}">
-                                                                                            {{ $val->tema }}
-                                                                                        </option>
-                                                                                    @endforeach
-                                                                                </select>
-                                                                            </div>
-                                                                            <input type="hidden"
-                                                                                value="{{ $estudiante->idestudiantes }}"
-                                                                                name="idestudiantes">
-                                                                            <label>nota:</label>
-                                                                            <input type="number" class="form-control"
-                                                                                name="nota"><br>
-                                                                            <button class="btn btn-info"
-                                                                                type="submit">cargar</button>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
+                            </a>
         </div>
 
         </td>

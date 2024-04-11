@@ -11,21 +11,13 @@ class NominaController extends Controller
     {
         $datan = DB::select("SELECT es.idestudiantes, p.nombre, p.apellido, p.cedula, p.fecha_nacimiento
         FROM estudiantes es 
-        JOIN personas p ON p.idpersonas = es.personas_idpersonas WHERE `secciones_idsecciones`=?;",[ $request -> seccion]);
-        $datae = DB::select("SELECT * FROM `evaluaciones` WHERE 1");
-        $selec = DB::select("SELECT * FROM `secciones` WHERE 1");
-        $topCa = DB::select('SELECT p.nombre, p.apellido, p.cedula, es.idestudiantes,ev.idevaluaciones, ev.tema,ev.tipo_evaluacion, n.calificacion, n.idestudiantes_evaluaciones
-        FROM estudiantes es
-        JOIN personas p ON es.personas_idpersonas = p.idpersonas
-        JOIN estudiantes_evaluaciones n ON es.idestudiantes = n.estudiantes_idestudiantes
-        JOIN evaluaciones ev ON n.evaluaciones_idevaluaciones = ev.idevaluaciones
+        JOIN personas p ON p.idpersonas = es.personas_idpersonas WHERE `secciones_idsecciones`=?",[$request->seccion]);
         
-        WHERE es.idestudiantes = ?
-        ORDER BY ev.idevaluaciones ASC', [ $request -> idestudiantes]);
-    
-        return view("nomina", ['est' => $datan, 'eval' => $datae, 'cali' => $topCa, 'sel' => $selec]);
+        $selec = DB::select("SELECT * FROM `secciones` WHERE 1");
+        
+        return view("nomina", ['est' => $datan, 'sel' => $selec]);
     }
-
+   
     public function create(Request $request){
         try{
            $sql=DB::insert("INSERT INTO `estudiantes_evaluaciones`( `estudiantes_idestudiantes`, `evaluaciones_idevaluaciones`, `calificacion`)  values(?,?,?)",
@@ -44,6 +36,27 @@ class NominaController extends Controller
             return back()->with("error","Error al añadir la evaluación");
           }
     }
+    
+    public function nose(Request $request){
+      $topCa = DB::select('SELECT p.nombre, p.apellido, p.cedula, es.idestudiantes,ev.idevaluaciones, ev.tema,ev.tipo_evaluacion, n.calificacion, n.idestudiantes_evaluaciones
+      FROM estudiantes es
+      JOIN personas p ON es.personas_idpersonas = p.idpersonas
+      JOIN estudiantes_evaluaciones n ON es.idestudiantes = n.estudiantes_idestudiantes
+      JOIN evaluaciones ev ON n.evaluaciones_idevaluaciones = ev.idevaluaciones
+      
+      WHERE es.idestudiantes = ?
+      ORDER BY ev.idevaluaciones ASC',[$request->idestudiantes] );
+        $datae = DB::select("SELECT * FROM `evaluaciones` WHERE 1");
+        return view("notas", [
+            'idestudiantes' => $request->idestudiantes,
+            'nombre' => $request->nombre,
+            'apellido' => $request->apellido,
+            'cedula' => $request->cedula,
+            'cali' => $topCa,
+            'eval' => $datae,
+        ]);
+    }
+
     public function update(Request $request){
       try{
          $sql=DB::update("UPDATE  `estudiantes_evaluaciones` SET  `calificacion`=?  WHERE `idestudiantes_evaluaciones`=?",

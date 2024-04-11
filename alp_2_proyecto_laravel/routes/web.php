@@ -23,6 +23,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/nota',[NominaController::class, 'nose'])->name("nomina.nose");
+
+Route::get('/mandar',[NominaController::class, 'nose'])->name("nomina.mandar");
+
+Route::get('/cn',[NominaController::class, 'note'])->name("nomina.note");
+
 Route::get('/evaluacion', [CrudController::class, 'index'])->name("crud.index");
 
 Route::get('/lista', [NominaController::class, 'index'])->name("nomina.index");
