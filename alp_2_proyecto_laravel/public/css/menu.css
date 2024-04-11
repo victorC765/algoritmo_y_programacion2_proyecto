@@ -17,6 +17,9 @@ html,body{
  align-items: center; /* Centra verticalmente */
  height: 100vh; 
 }
+.esp{
+    margin: 10px;
+}
 
 .circulo{
     height: 650px;

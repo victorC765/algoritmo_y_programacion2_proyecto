@@ -14,21 +14,31 @@
 <body>
 
     <div class="eva">
+      
+        <a href="./lista"><button class="btn"><img width="100" height="100" src="https://img.icons8.com/clouds/100/back.png" alt="back"/></button></a>
         <h3 class="mdt"><img width="60" height="60" src="https://img.icons8.com/dusk/64/exam.png"
                 alt="exam" />Evaluaciones</h3>
-        <p>ID del Estudiante: {{ $idestudiantes }}</p>
-        <p>Nombre: {{ $nombre }} {{ $apellido }}</p>
-        <p>cedula: {{ $cedula }}</p>
+                
+                <div class="uni">
+       
+        <div class="esp">
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalPequeña">
             <img width="50" height="50" src="https://img.icons8.com/dusk/64/add-property--v1.png"
                 alt="add-property--v1" />Añadir Nota
         </button>
+    </div>
+    
+    <h4 class="p-3">ID del Estudiante: {{ $idestudiantes }}   </h4>
+    <h4 class="p-3">Nombre: {{ $nombre }} {{ $apellido }}   </h4>
+    <h4 class="p-3">cedula: {{ $cedula }}</h4>
+    <h4 class="p-3">cedula: {{ $seccion}}</h4>
+    </div>
         <div class="modal fade" id="modalPequeña" data-backdrop="static" data-keyboard="false" tabindex="-1"
             aria-labelledby="ModalPequeñaLabel">
 
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
-                    <div class="fondo-difuminado">
+                    <div class="modal-content-custom">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Cargar Nota</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"

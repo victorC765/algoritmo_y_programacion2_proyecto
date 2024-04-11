@@ -9,9 +9,11 @@ class NominaController extends Controller
 {
     public function index(Request $request)
     {
-        $datan = DB::select("SELECT es.idestudiantes, p.nombre, p.apellido, p.cedula, p.fecha_nacimiento
+        $datan = DB::select("SELECT es.idestudiantes, p.nombre, p.apellido, p.cedula, p.fecha_nacimiento, sec.nombre_seccion
         FROM estudiantes es 
-        JOIN personas p ON p.idpersonas = es.personas_idpersonas WHERE `secciones_idsecciones`=?",[$request->seccion]);
+        JOIN personas p ON p.idpersonas = es.personas_idpersonas 
+        JOIN secciones sec ON es.secciones_idsecciones = sec.idsecciones 
+        WHERE `secciones_idsecciones`=?",[$request->seccion]);
         
         $selec = DB::select("SELECT * FROM `secciones` WHERE 1");
         
@@ -25,7 +27,6 @@ class NominaController extends Controller
              $request->idestudiantes,
              $request->idevaluaciones,
              $request->nota,
-            
            ]);
         }catch(\Throwable $th){
             $sql = 0;
@@ -36,7 +37,7 @@ class NominaController extends Controller
             return back()->with("error","Error al añadir la evaluación");
           }
     }
-    
+
     public function nose(Request $request){
       $topCa = DB::select('SELECT p.nombre, p.apellido, p.cedula, es.idestudiantes,ev.idevaluaciones, ev.tema,ev.tipo_evaluacion, n.calificacion, n.idestudiantes_evaluaciones
       FROM estudiantes es
@@ -52,6 +53,7 @@ class NominaController extends Controller
             'nombre' => $request->nombre,
             'apellido' => $request->apellido,
             'cedula' => $request->cedula,
+            'seccion' => $request->nombre_seccion,
             'cali' => $topCa,
             'eval' => $datae,
         ]);

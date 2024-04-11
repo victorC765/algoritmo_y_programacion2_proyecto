@@ -79,6 +79,7 @@
                                         <input type="hidden" value="{{ $estudiante->nombre }}" name="nombre">
                                         <input type="hidden" value="{{ $estudiante->apellido}}" name="apellido">
                                         <input type="hidden" value="{{ $estudiante->cedula}}" name="cedula">
+                                        <input type="hidden" value="{{ $estudiante->nombre_seccion}}" name="nombre_seccion">
                                         </div>
                                
                                 <a href="./nota">
