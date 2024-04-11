@@ -36,6 +36,14 @@
                     </a>
                 </li>
                 <li>
+                    <a href="./crearmateria">
+                        <div>
+                            <img src="{{ asset('img/literature.png') }}" alt="icono de libro" width="135" height="135" />
+                        </div>
+                        <div><br/>Crear Materia</div>
+                    </a>
+                </li>
+                <li>
                     <a data-bs-toggle="modal" data-bs-target="#exampleModal">          
                     <div>
                             <img src="{{ asset('img/salida-de-emergencia.png') }}" alt="icono de estado de estudiantil" width="135" height="135" />

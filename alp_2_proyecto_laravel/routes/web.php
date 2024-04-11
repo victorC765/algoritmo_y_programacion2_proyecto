@@ -41,3 +41,8 @@ Route::post('/modificar_evaluacion', [CrudController::class, 'update'])->name("c
 
 
 Route::get("/eliminar_evaluacion_{idevaliaciones}", [CrudController::class, 'delete'])->name("crud.delete");
+
+
+//ruta para crear materia
+
+Route::get('/crearmateria', [MateriaController::class, 'index'])->name('materia.create');
